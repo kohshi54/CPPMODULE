@@ -25,10 +25,16 @@ $(NAME) : $(OBJS)
 
 clean : 
 	rm -rf $(OBJS) $(DEPS) $(DEP_DIR) $(OBJ_DIR)
+	rm -rf build
 
 fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
 
-.PHONY : clean fclean re all
+test:
+	cmake -DTEST=1 -S . -B build
+	cmake --build build
+	./build/phonebook-googletest
+
+.PHONY : clean fclean re all test

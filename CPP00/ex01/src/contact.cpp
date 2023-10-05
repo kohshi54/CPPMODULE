@@ -55,5 +55,8 @@ void Contact::showAllColumn(int index)
 }
 
 
-// first name, last name, nickname, phone number, and
-// darkest secret.
+std::string Contact::getFirstName() const { return firstname; }
+std::string Contact::getLastName() const { return lastname; }
+std::string Contact::getNickName() const { return nickname; }
+std::string Contact::getPhoneNumber() const { return phonenumber; }
+std::string Contact::getDarkestSecret() const { return darkestsecret; }
