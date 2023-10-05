@@ -1,5 +1,4 @@
-#include <iostream>
-#include <cctype>
+#include "megaphone.hpp"
 
 void	toUpperCase(std::string& input) {
     for (size_t i = 0; i < input.size(); ++i)
@@ -8,6 +7,7 @@ void	toUpperCase(std::string& input) {
     }
 }
 
+#ifndef TEST
 int	main(int argc, char *argv[])
 {
     if (argc < 2)
@@ -24,3 +24,4 @@ int	main(int argc, char *argv[])
 	std::cout << std::endl;
     return (0);
 }
+#endif
