@@ -16,5 +16,5 @@ FetchContent_MakeAvailable(googletest)
 add_executable(${PROJECT_NAME}-googletest megaphone.cpp test.cpp)
 target_link_libraries(${PROJECT_NAME}-googletest gtest_main)
 add_test(NAME test COMMAND ${PROJECT_NAME}-googletest)
-target_compile_definitions(${PROJECT_NAME}-googletest PRIVATE TEST)
+target_compile_definitions(${PROJECT_NAME}-googletest PRIVATE TEST) # To avoid including main() when testing.
 enable_testing()
