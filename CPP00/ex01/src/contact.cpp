@@ -46,6 +46,7 @@ void Contact::showFourColumn(int index)
 
 void Contact::showAllColumn(int index)
 {
+	(void)index;
 	std::cout << "first name: " << this->firstname << std::endl;
 	std::cout << "last name: " << this->lastname << std::endl;
 	std::cout << "nickname: " << this->nickname << std::endl;
