@@ -3,31 +3,15 @@
 
 # include <iostream>
 # include <string>
-#include <iomanip>
+# include <iomanip>
+
+#include "contact.hpp"
 
 # define PROMPT "> "
 # define CONTACTSIZE 8
 # define COLUMNWIDTH 10
 
-class Contact {
-	std::string firstname;
-	std::string lastname;
-	std::string nickname;
-	std::string phonenumber;
-	std::string darkestsecret;
-
-	public:
-		Contact();
-		void setContact();
-		Contact getContact();
-		void showFourColumn(int index);
-		void showAllColumn(int index);
-};
-
 class PhoneBook {
-	Contact	phoneBook[CONTACTSIZE];
-	int		index;
-
 	public:
 		PhoneBook();
 		void addPhoneBook(Contact newContact);
@@ -35,6 +19,11 @@ class PhoneBook {
 		void searchPhoneBook();
 		void displayEntry();
 		void exitPhoneBook();
+
+	private:
+			Contact	phoneBook[CONTACTSIZE];
+			int		index;
+
 };
 
 #endif
