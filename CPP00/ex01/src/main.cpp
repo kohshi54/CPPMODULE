@@ -7,42 +7,42 @@ int main(void)
 
 	while (1)
 	{
+		std::cout << "============================================" << std::endl;
+		std::cout << "Please input a command (ADD, SEARCH, EXIT)" << std::endl;
+		std::cout << PROMPT << std::flush;
+
 		try {
-			std::cout << "============================================" << std::endl;
-			std::cout << "Please input a command (ADD, SEARCH, EXIT)" << std::endl;
-			std::cout << PROMPT << std::flush;
 			std::cin >> input;
-
-			if (std::cin.eof()) {
-				std::cout << std::endl << std::flush;
+			if (std::cin.eof())
 				throw std::runtime_error("EOF detected");
-			}
-
-			if (input == "EXIT")
-				break ;
-			else if(input == "ADD")
-			{
-				Contact newContact;
-				std::cout << "COMMAND " << input << " entered!" << std::endl;
-				newContact.setContact();
-				if (newContact.isValid())
-					myPhoneBook.addPhoneBook(newContact);
-				else
-					std::cout << "input not valid, not added" << std::endl;
-			}
-			else if (input == "SEARCH")
-			{
-				std::cout << "COMMAND " << input << " entered!" << std::endl;
-				myPhoneBook.searchPhoneBook();
-				myPhoneBook.displayEntry();
-			}
-			else
-				std::cout << "please enter valid command" << std::endl;
 		}
-		catch (...) {
+		catch (...)	{
+			std::cout << std::endl << std::flush;
 			std::cin.clear();
 			std::clearerr(stdin);
+			continue ;
 		}
+
+		if (input == "EXIT")
+			break ;
+		else if(input == "ADD")
+		{
+			Contact newContact;
+			std::cout << "COMMAND " << input << " entered!" << std::endl;
+			newContact.setContact();
+			if (newContact.isValid())
+				myPhoneBook.addPhoneBook(newContact);
+			else
+				std::cout << "input not valid, not added" << std::endl;
+		}
+		else if (input == "SEARCH")
+		{
+			std::cout << "COMMAND " << input << " entered!" << std::endl;
+			myPhoneBook.searchPhoneBook();
+			myPhoneBook.displayEntry();
+		}
+		else
+			std::cout << "Invalid command." << std::endl;
 	}
 	return (0);
 }

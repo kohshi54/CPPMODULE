@@ -34,6 +34,7 @@ void PhoneBook::displayEntry()
 	int index;
 
 	std::cout << "please enter entry to display!" << std::endl;
+	std::cout << PROMPT << std::flush;
 	try {
 		std::cin >> index;
 		if (std::cin.eof())
