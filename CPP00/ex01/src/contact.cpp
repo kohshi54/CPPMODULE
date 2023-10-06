@@ -8,17 +8,40 @@ Contact::Contact() : firstname(), lastname(), nickname(), phonenumber(), darkest
 
 void Contact::setContact()
 {
-	// std::cout << "setContact() called!" << std::endl;
-	std::cout << "please enter first name" << std::endl;
-	std::cin >> this->firstname;
-	std::cout << "please enter last name" << std::endl;
-	std::cin >> this->lastname;
-	std::cout << "please enter nickname" << std::endl;
-	std::cin >> this->nickname;
-	std::cout << "please enter phone number" << std::endl;
-	std::cin >> this->phonenumber;
-	std::cout << "please enter darkest secret" << std::endl;
-	std::cin >> this->darkestsecret;
+	try {
+		// std::cout << "setContact() called!" << std::endl;
+		std::cout << "please enter first name" << std::endl;
+		std::cout << PROMPT << std::flush;
+		std::cin >> this->firstname;
+		if (std::cin.eof())
+			throw std::runtime_error("EOF detected");
+		std::cout << "please enter last name" << std::endl;
+		std::cout << PROMPT << std::flush;
+		std::cin >> this->lastname;
+		if (std::cin.eof())
+			throw std::runtime_error("EOF detected");
+		std::cout << "please enter nickname" << std::endl;
+		std::cout << PROMPT << std::flush;
+		std::cin >> this->nickname;
+		if (std::cin.eof())
+			throw std::runtime_error("EOF detected");
+		std::cout << "please enter phone number" << std::endl;
+		std::cout << PROMPT << std::flush;
+		std::cin >> this->phonenumber;
+		if (std::cin.eof())
+			throw std::runtime_error("EOF detected");
+		std::cout << "please enter darkest secret" << std::endl;
+		std::cout << PROMPT << std::flush;
+		std::cin >> this->darkestsecret;
+		if (std::cin.eof())
+			throw std::runtime_error("EOF detected");
+	}
+	catch (...) {
+		std::cin.clear();
+		std::clearerr(stdin);
+		std::cout << std::endl << std::flush;
+	}
+
 }
 
 Contact Contact::getContact()
@@ -54,6 +77,20 @@ void Contact::showAllColumn(int index)
 	std::cout << "darkest secret: " << this->darkestsecret << std::endl;
 }
 
+bool Contact::isValid()
+{
+	if (this->firstname.empty())
+		return (false);
+	if (this->lastname.empty())
+		return (false);
+	if (this->nickname.empty())
+		return (false);
+	if (this->phonenumber.empty())
+		return (false);
+	if (this->darkestsecret.empty())
+		return (false);
+	return (true);
+}
 
 std::string Contact::getFirstName() const { return firstname; }
 std::string Contact::getLastName() const { return lastname; }

@@ -34,18 +34,30 @@ void PhoneBook::displayEntry()
 	int index;
 
 	std::cout << "please enter entry to display!" << std::endl;
-	std::cin >> index;
-    if (std::cin.fail()) 
-    {
-        std::cin.clear();
-        // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-        std::cout << "Invalid input. Please enter an integer." << std::endl;
-        return ;
-    }
-	if (index < 0 || CONTACTSIZE - 1 < index)
-	{
-		std::cout << "wrong entry specified... " << std::endl;
-		return ;
+	try {
+		std::cin >> index;
+		if (std::cin.eof())
+		{
+			std::cout << "EOF detected." << std::endl;	
+			throw std::runtime_error("EOF detected");
+		}
+		else if (std::cin.fail())
+		{
+			std::cout << "Invalid input." << std::endl;
+			std::cin.clear();
+			std::clearerr(stdin);
+			std::cin.ignore(INT_MAX, '\n');
+			throw std::runtime_error("Invalid input");
+		}
+		else if (index < 0 || CONTACTSIZE - 1 < index)
+		{
+			std::cout << "Invalid entry specified." << std::endl;
+			throw std::runtime_error("Invalid entry");
+		}
+		this->phoneBook[index].showAllColumn(index);
 	}
-	this->phoneBook[index].showAllColumn(index);
+	catch (...) {
+		std::cin.clear();
+		std::clearerr(stdin);
+	}
 }

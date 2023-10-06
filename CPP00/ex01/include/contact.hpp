@@ -10,6 +10,7 @@ class Contact {
 		Contact getContact();
 		void showFourColumn(int index);
 		void showAllColumn(int index);
+		bool isValid();
 		std::string getFirstName() const;
 		std::string getLastName() const;
 		std::string getNickName() const;
