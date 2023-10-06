@@ -33,7 +33,7 @@ int main(void)
 			if (newContact.isValid())
 				myPhoneBook.addPhoneBook(newContact);
 			else
-				std::cout << "input not valid, not added" << std::endl;
+				std::cout << "Invalid input, not added." << std::endl;
 		}
 		else if (input == "SEARCH")
 		{
