@@ -33,9 +33,9 @@ fclean : clean
 
 re : fclean all
 
-# test:
-# 	cmake -DTEST=1 -S . -B build
-# 	cmake --build build
-# 	./build/zombie-googletest
+test:
+	cmake -DTEST=1 -S . -B build
+	cmake --build build
+	./build/zombie-googletest
 
 .PHONY : clean fclean re all test
