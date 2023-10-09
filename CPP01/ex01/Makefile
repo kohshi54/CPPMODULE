@@ -38,4 +38,6 @@ test:
 	cmake --build build
 	./build/zombie-googletest
 
+-include $(DEPS)
+
 .PHONY : clean fclean re all test
