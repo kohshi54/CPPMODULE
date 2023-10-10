@@ -12,9 +12,11 @@
 
 void Harl::complain( std::string level )
 {
-    static const char* levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-	void (Harl::*ff[])(void) = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+    const char* levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	typedef void (Harl::*F)();
+	F fp[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	int index = -1;
+
 	for (size_t i = 0; i < sizeof(levels)/sizeof(levels[0]); ++i)
 	{
 		if (level == levels[i]) {
@@ -28,13 +30,13 @@ void Harl::complain( std::string level )
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 			break;
 		case 0:
-			(this->*ff[0])();
+			(this->*fp[0])();
 		case 1:
-			(this->*ff[1])();
+			(this->*fp[1])();
 		case 2:
-			(this->*ff[2])();
+			(this->*fp[2])();
 		case 3:
-			(this->*ff[3])();
+			(this->*fp[3])();
 		default:
 			break;
 	}
