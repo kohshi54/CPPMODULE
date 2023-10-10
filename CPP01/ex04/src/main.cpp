@@ -1,5 +1,4 @@
-#include <fstream>
-#include <iostream>
+#include "MyString.hpp"
 
 int main(int argc, char *argv[])
 {
@@ -27,18 +26,11 @@ int main(int argc, char *argv[])
 			std::cout << "Error opening file." << std::endl;
 			return (1);
 		}
-
-		std::string line;
-		size_t pos;
-		size_t len = s1.size();
+		
+		MyString line;
         while (std::getline(infile, line))
 		{
-			while ((pos = line.find(s1)) != std::string::npos)
-			{
-				// line.replace(pos, len, s2);
-				line.erase(pos, len);
-				line.insert(pos, s2);
-			}
+			line.replaceAll(line, s1, s2);
 			if (infile.eof())
 				newfile << line;
 			else
