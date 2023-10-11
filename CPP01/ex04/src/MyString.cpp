@@ -7,7 +7,7 @@ void MyString::replace(MyString& line, size_t pos, std::string s1, std::string s
 	line.insert(pos, s2);
 }
 
-void MyString::replaceAll(MyString& line, std::string s1, std::string s2)
+void MyString::replaceLine(MyString& line, std::string s1, std::string s2)
 {
 	size_t pos;
 

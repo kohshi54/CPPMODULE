@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -MMD -MP -std=c++98 -fsanitize=address -g
 SRC_DIR		= src/
 OBJ_DIR		= obj/
 DEP_DIR		= dep/
-SRCS = main.cpp MyString.cpp
+SRCS = main.cpp MyString.cpp MyFstream.cpp
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:%.cpp=%.o))
 DEPS = $(addprefix $(DEP_DIR), $(SRCS:%.cpp=%.d))
 
@@ -31,6 +31,11 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+test:
+	cmake -S . -B build
+	cmake --build build
+	./build/zombie-googletest
 
 -include $(DEPS)
 
