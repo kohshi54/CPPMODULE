@@ -7,6 +7,10 @@ int main(void)
 	zombie.setName("primary");
 	zombie.announce();
 	Zombie* zombies = zombie.zombieHorde(3, "secondary");
+	if (!zombies)
+	{
+		return (1);
+	}
 	std::cout << "------" << std::endl;
 	for (int i = 0; i < 3; ++i)
 	{
