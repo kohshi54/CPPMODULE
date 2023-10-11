@@ -9,15 +9,15 @@ int main(int argc, char *argv[])
 		return (1);
 	}
 
-	MyFstream infile;
-	MyFstream newfile;
 	std::string filename = argv[1];
+	MyFstream infile(filename);
+	MyFstream newfile(filename + ".replace");
 	std::string s1 = argv[2];
 	std::string s2 = argv[3];
 
-	if (infile.openFile(filename, std::ios::in))
+	if (infile.openFile(std::ios::in))
 	{
-		if (newfile.openFile(filename + ".replace", std::ios::out))
+		if (newfile.openFile(std::ios::out))
 		{
 			infile.replaceFile(newfile, s1, s2);
 		}

@@ -15,15 +15,20 @@ void MyFstream::replaceFile(std::fstream& outfile, std::string s1, std::string s
 	}
 }
 
-bool MyFstream::openFile(std::string filename, ios_base::openmode mode)
+bool MyFstream::openFile(ios_base::openmode mode)
 {
-	this->open(filename, mode);
+	this->open(this->getFilename(), mode);
 	if (this->fail())
 	{
 		std::cout << "No such file." << std::endl;
 		return (false);
 	}
 	return (true);
+}
+
+MyFstream::MyFstream(std::string filename) : _filename(filename)
+{
+
 }
 
 MyFstream::~MyFstream()
@@ -33,4 +38,9 @@ MyFstream::~MyFstream()
 		// std::cout << "closing" << std::endl;
 		this->close();
 	}
+}
+
+const std::string& MyFstream::getFilename()
+{
+	return (this->_filename);
 }
