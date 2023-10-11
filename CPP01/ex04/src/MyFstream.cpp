@@ -9,7 +9,7 @@ void MyFstream::replaceWordInFile(std::fstream& outfile, std::string s1, std::st
 	{
 		line.replaceLine(line, s1, s2);
 		if (this->eof())
-			outfile << line;
+			outfile << line << std::flush;
 		else
 			outfile << line << std::endl;
 	}

@@ -25,7 +25,7 @@ $(NAME) : $(OBJS)
 
 clean : 
 	rm -rf $(OBJS) $(DEPS) $(DEP_DIR) $(OBJ_DIR)
-	rm -rf build
+	rm -rf build test/outfile
 
 fclean : clean
 	rm -f $(NAME)
@@ -35,6 +35,7 @@ re : fclean all
 test:
 	cmake -S . -B build
 	cmake --build build
+	mkdir -p test/outfile
 	./build/zombie-googletest
 
 -include $(DEPS)

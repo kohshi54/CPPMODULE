@@ -1,5 +1,5 @@
-#ifndef __MY_FSTREAM_HPP
-# define __MY_FSTREAM_HPP
+#ifndef __MY_FSTREAM_HPP__
+# define __MY_FSTREAM_HPP__
 
 #include <fstream>
 #include <iostream>
