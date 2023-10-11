@@ -7,11 +7,11 @@
 class MyFstream : public std::fstream
 {
 	public:
-		void replaceFile(std::fstream& outfile, std::string s1, std::string s2);
-		bool openFile(ios_base::openmode mode);
-		MyFstream(std::string filename);
-		~MyFstream();
+		MyFstream(std::string filename, ios_base::openmode mode);
+		// ~MyFstream();
+		// bool openFile(ios_base::openmode mode);
 		const std::string& getFilename();
+		void replaceWordInFile(std::fstream& outfile, std::string s1, std::string s2);
 
 	private:
 		std::string _filename;

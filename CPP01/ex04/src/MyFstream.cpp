@@ -1,7 +1,7 @@
 #include "MyFstream.hpp"
 #include "MyString.hpp"
 
-void MyFstream::replaceFile(std::fstream& outfile, std::string s1, std::string s2)
+void MyFstream::replaceWordInFile(std::fstream& outfile, std::string s1, std::string s2)
 {
 	MyString line;
 
@@ -15,6 +15,27 @@ void MyFstream::replaceFile(std::fstream& outfile, std::string s1, std::string s
 	}
 }
 
+const std::string& MyFstream::getFilename()
+{
+	return (this->_filename);
+}
+
+MyFstream::MyFstream(std::string filename, ios_base::openmode mode) : std::fstream(filename, mode), _filename(filename)
+{
+
+}
+
+/*
+MyFstream::~MyFstream()
+{
+	if (this->is_open())
+	{
+		this->close();
+	}
+}
+*/
+
+/*
 bool MyFstream::openFile(ios_base::openmode mode)
 {
 	this->open(this->getFilename(), mode);
@@ -25,22 +46,4 @@ bool MyFstream::openFile(ios_base::openmode mode)
 	}
 	return (true);
 }
-
-MyFstream::MyFstream(std::string filename) : _filename(filename)
-{
-
-}
-
-MyFstream::~MyFstream()
-{
-	if (this->is_open())
-	{
-		// std::cout << "closing" << std::endl;
-		this->close();
-	}
-}
-
-const std::string& MyFstream::getFilename()
-{
-	return (this->_filename);
-}
+*/
