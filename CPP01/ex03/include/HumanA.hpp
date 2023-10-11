@@ -10,7 +10,6 @@ class HumanA {
 		~HumanA();
 
 		void attack();
-		void setWeapon(Weapon weapon);
 
 	private:
 		std::string _name;
