@@ -4,10 +4,11 @@
 #include <fstream>
 #include <iostream>
 
-class MyFstream : public std::ifstream
+class MyFstream : public std::fstream
 {
 	public:
-		void replaceFile(std::ofstream& outfile, std::string s1, std::string s2);
+		void replaceFile(std::fstream& outfile, std::string s1, std::string s2);
+		bool openFile(std::string filename, ios_base::openmode mode);
 };
 
 #endif
