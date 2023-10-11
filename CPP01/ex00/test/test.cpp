@@ -6,7 +6,7 @@ namespace {
 
 TEST(ZombieTest, NewZombieSuccessfulCreation) {
     std::string expectedName = "TestZombie";
-	Zombie testZombie;
+	Zombie testZombie(expectedName);
 
     Zombie* testZombie2 = testZombie.newZombie(expectedName);
 

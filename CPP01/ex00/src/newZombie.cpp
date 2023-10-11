@@ -5,8 +5,7 @@ Zombie* Zombie::newZombie(std::string name)
 	Zombie* newZombie;
 
 	try {
-		newZombie = new Zombie;
-		newZombie->setName(name);
+		newZombie = new Zombie(name);
 	} catch (const std::bad_alloc&) {
 		std::cout << "Failed to create newZombie" << std::endl;
 		return (NULL);

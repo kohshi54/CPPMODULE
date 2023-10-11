@@ -2,10 +2,9 @@
 
 int main(void)
 {
-	Zombie first;
+	Zombie first("first");
 	Zombie* second;
 
-	first.setName("first");
 	first.announce();
 	second = first.newZombie("second");
 	second->announce();

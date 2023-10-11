@@ -34,7 +34,7 @@ fclean : clean
 re : fclean all
 
 test:
-	cmake -DTEST=1 -S . -B build
+	cmake -S . -B build
 	cmake --build build
 	./build/zombie-googletest
 
