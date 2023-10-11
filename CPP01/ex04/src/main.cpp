@@ -20,9 +20,7 @@ int main(int argc, char *argv[])
 		if (newfile.openFile(filename + ".replace", std::ios::out))
 		{
 			infile.replaceFile(newfile, s1, s2);
-			newfile.close();
 		}
-		infile.close();
 	}
 
 	// if (infile.openFile(argv[1], std::ios::in) == false)

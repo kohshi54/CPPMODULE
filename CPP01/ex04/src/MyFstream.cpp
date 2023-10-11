@@ -25,3 +25,12 @@ bool MyFstream::openFile(std::string filename, ios_base::openmode mode)
 	}
 	return (true);
 }
+
+MyFstream::~MyFstream()
+{
+	if (this->is_open())
+	{
+		// std::cout << "closing" << std::endl;
+		this->close();
+	}
+}
