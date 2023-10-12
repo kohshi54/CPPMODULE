@@ -1,4 +1,4 @@
-NAME = Zombie
+NAME = Fixed
 CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 DEPFLAGS = -MMD -MP -MF $(DEP_DIR)$*.d
