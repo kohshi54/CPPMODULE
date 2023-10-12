@@ -18,13 +18,11 @@ class Fixed
 		float toFloat( void ) const;
 		int toInt( void ) const;
 
-		// void operator<<(const Fixed& rhs);
-
 		int getRawBits( void ) const;
 		void setRawBits( int const raw );
 	
 	private:
-		int _value;
+		int _rawBits;
 		static const int _fractBits = 8;
 };
 
