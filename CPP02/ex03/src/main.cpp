@@ -1,16 +1,14 @@
 #include "Fixed.hpp"
+#include "Point.hpp"
+bool bsp( Point const a, Point const b, Point const c, Point const point);
 
-int main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+int main( void )
+{
+	const Point a(0, 0);
+	const Point b(8, 0);
+	const Point c(0, 8);
 
-	std::cout << a << std::endl;
-	std::cout << ++a << std::endl;
-	std::cout << a << std::endl;
-	std::cout << a++ << std::endl;
-	std::cout << a << std::endl;
-	std::cout << b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-
+	const Point point(6, 6);
+	std::cout << bsp(a, b, c, point) << std::endl;
 	return 0;
 }
