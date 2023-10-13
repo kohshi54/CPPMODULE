@@ -14,7 +14,6 @@ Fixed::Fixed() : _rawBits(0)
 Fixed::Fixed(const Fixed& other)
 {
 	// std::cout << "Copy constructor called" << std::endl;
-	// this->setRawBits(other.getRawBits());
 	*this = other;
 }
 
@@ -34,7 +33,8 @@ Fixed::Fixed(const int value)
 Fixed::Fixed(const float value)
 {
 	// std::cout << "Float constructor called" << std::endl;
-	this->setRawBits(static_cast<int>(roundf((value * pow(2, _fractBits)))));
+	// this->setRawBits(static_cast<int>(roundf((value * std::pow(2, _fractBits)))));
+	this->setRawBits(static_cast<int>(roundf((value * 256))));
 }
 
 float Fixed::toFloat( void ) const
