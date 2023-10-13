@@ -1,6 +1,8 @@
 #ifndef __FIXED_HPP__
 #define __FIXED_HPP__
 
+#include <iostream>
+
 class Fixed
 {
 	public:
@@ -13,7 +15,7 @@ class Fixed
 		void setRawBits( int const raw );
 	
 	private:
-		int _value;
+		int _rawBits;
 		static const int _fractBits = 8;
 };
 
