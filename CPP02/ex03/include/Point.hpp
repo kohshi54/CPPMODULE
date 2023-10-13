@@ -1,5 +1,8 @@
 #include "Fixed.hpp"
 
+#ifndef __POINT_HPP__
+#define __POINT_HPP__
+
 class Point
 {
 	public:
@@ -17,7 +20,4 @@ class Point
 		const Fixed _y;
 };
 
-// Fixed operator+(const Fixed& rhs) const;
-// Fixed operator-(const Fixed& rhs) const;
-// Fixed operator*(const Fixed& rhs) const;
-// Fixed operator/(const Fixed& rhs) const;
+#endif
