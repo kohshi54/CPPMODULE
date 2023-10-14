@@ -37,7 +37,7 @@ re : fclean all
 test:
 	cmake -S . -B build
 	cmake --build build
-	./build/zombie-googletest
+	./build/fixed-googletest
 
 -include $(DEPS)
 

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(zombie)
+project(fixed)
 
 # GoogleTest requires at least C++14
 set(CMAKE_CXX_STANDARD 14)
