@@ -67,14 +67,14 @@ TEST_F(FixedTest, IncrementDecrementOperators) {
     Fixed a(5);
     Fixed b = a++;
 
-    EXPECT_EQ(a.getRawBits(), 6 << 8);
+    EXPECT_EQ(a.getRawBits(), (5 << 8)+1);
     EXPECT_EQ(b.getRawBits(), 5 << 8);
 
     Fixed c(10);
     Fixed d = --c;
 
-    EXPECT_EQ(c.getRawBits(), 9 << 8);
-    EXPECT_EQ(d.getRawBits(), 9 << 8);
+    EXPECT_EQ(c.getRawBits(), (10 << 8)-1);
+    EXPECT_EQ(d.getRawBits(), (10 << 8)-1);
 }
 
 TEST_F(FixedTest, MinMaxFunctions) {
