@@ -13,7 +13,7 @@ Fixed::Fixed() : _rawBits(0)
 
 Fixed::Fixed(const Fixed& other)
 {
-	std::cout << "Copy constructor called" << std::endl;
+	// std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
@@ -26,7 +26,7 @@ Fixed& Fixed::operator=(const Fixed& rhs)
 
 Fixed::Fixed(const int value)
 {
-	std::cout << "Int constructor called with value " << value << std::endl;
+	// std::cout << "Int constructor called with value " << value << std::endl;
 	this->setRawBits(value << _fractBits);
 }
 
