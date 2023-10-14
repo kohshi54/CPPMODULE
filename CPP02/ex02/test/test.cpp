@@ -2,22 +2,7 @@
 #include "Fixed.hpp"
 
 class FixedTest : public ::testing::Test {
-protected:
-    FixedTest() {
-        // Set up any initial state if needed before each test case
-    }
 
-    virtual ~FixedTest() {
-        // Clean up any resources if needed after each test case
-    }
-
-    virtual void SetUp() {
-        // Set up any initial state if needed before each test
-    }
-
-    virtual void TearDown() {
-        // Clean up any resources if needed after each test
-    }
 };
 
 TEST_F(FixedTest, DefaultConstructor) {
