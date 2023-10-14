@@ -8,7 +8,7 @@ int main( void )
 	const Point b(8, 0);
 	const Point c(0, 8);
 
-	const Point point(6, 6);
+	const Point point(1, 1);
 	std::cout << bsp(a, b, c, point) << std::endl;
 	return 0;
 }
