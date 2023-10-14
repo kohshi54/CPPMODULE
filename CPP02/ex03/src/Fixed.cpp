@@ -103,7 +103,7 @@ Fixed Fixed::operator+(const Fixed& rhs) const
 {
     Fixed result;
     result.setRawBits(this->getRawBits() + rhs.getRawBits());
-    return result;
+    return (result);
 }
 
 // Fixed Fixed::operator-(const Fixed& rhs) const
@@ -115,7 +115,7 @@ Fixed Fixed::operator-(const Fixed& rhs) const
 {
     Fixed result;
     result.setRawBits(this->getRawBits() - rhs.getRawBits());
-    return result;
+    return (result);
 }
 
 // Fixed Fixed::operator*(const Fixed& rhs) const
@@ -129,7 +129,7 @@ Fixed Fixed::operator-(const Fixed& rhs) const
 Fixed Fixed::operator*(const Fixed& rhs) const {
     Fixed result;
     result.setRawBits(((long long)this->getRawBits() * rhs.getRawBits()) >> _fractBits);
-    return result;
+    return (result);
 }
 
 // Fixed Fixed::operator/(const Fixed& rhs) const
@@ -144,12 +144,13 @@ Fixed Fixed::operator/(const Fixed& rhs) const
 {
     Fixed result;
     result.setRawBits(((long long)this->getRawBits() << _fractBits) / rhs.getRawBits());
-    return result;
+    return (result);
 }
 
 Fixed& Fixed::operator++()
 {
-	this->_rawBits += (1 << 8);
+	// this->_rawBits += (1 << 8);
+	this->_rawBits += 1;
 	return (*this);
 }
 
@@ -157,12 +158,13 @@ Fixed Fixed::operator++(int)
 {
 	Fixed tmp = *this;
 	++(*this);
-	return tmp;
+	return (tmp);
 }
 
 Fixed& Fixed::operator--()
 {
-	this->_rawBits -= (1 << 8);
+	// this->_rawBits -= (1 << 8);
+	this->_rawBits -= 1;
 	return (*this);
 }
 
@@ -170,7 +172,7 @@ Fixed Fixed::operator--(int)
 {
 	Fixed tmp = *this;
 	--(*this);
-	return tmp;
+	return (tmp);
 }
 
 Fixed& Fixed::min(Fixed& f1, Fixed& f2)
