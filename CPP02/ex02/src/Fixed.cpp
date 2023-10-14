@@ -13,7 +13,7 @@ Fixed::Fixed() : _rawBits(0)
 
 Fixed::Fixed(const Fixed& other)
 {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	*this = other;
 }
 
@@ -26,7 +26,7 @@ Fixed& Fixed::operator=(const Fixed& rhs)
 
 Fixed::Fixed(const int value)
 {
-	// std::cout << "Int constructor called" << std::endl;
+	std::cout << "Int constructor called with value " << value << std::endl;
 	this->setRawBits(value << _fractBits);
 }
 
@@ -94,35 +94,62 @@ bool Fixed::operator!=(const Fixed& rhs) const
 	return (this->getRawBits() != rhs.getRawBits());
 }
 
+// Fixed Fixed::operator+(const Fixed& rhs) const
+// {
+// 	return Fixed (this->getRawBits() + rhs.getRawBits());
+// }
+
 Fixed Fixed::operator+(const Fixed& rhs) const
 {
-	return Fixed (this->getRawBits() + rhs.getRawBits());
+    Fixed result;
+    result.setRawBits(this->getRawBits() + rhs.getRawBits());
+    return result;
 }
+
+// Fixed Fixed::operator-(const Fixed& rhs) const
+// {
+// 	return Fixed (this->getRawBits() - rhs.getRawBits());
+// }
 
 Fixed Fixed::operator-(const Fixed& rhs) const
 {
-	return Fixed (this->getRawBits() - rhs.getRawBits());
+    Fixed result;
+    result.setRawBits(this->getRawBits() - rhs.getRawBits());
+    return result;
 }
 
-Fixed Fixed::operator*(const Fixed& rhs) const
-{
-	long long tmpnum = (this->getRawBits() * rhs.getRawBits()) / (1 << _fractBits);
-	Fixed tmp;
-	tmp.setRawBits(tmpnum);
-	return tmp;
+// Fixed Fixed::operator*(const Fixed& rhs) const
+// {
+// 	long long tmpnum = (this->getRawBits() * rhs.getRawBits()) / (1 << _fractBits);
+// 	Fixed tmp;
+// 	tmp.setRawBits(tmpnum);
+// 	return tmp;
+// }
+
+Fixed Fixed::operator*(const Fixed& rhs) const {
+    Fixed result;
+    result.setRawBits(((long long)this->getRawBits() * rhs.getRawBits()) >> _fractBits);
+    return result;
 }
+
+// Fixed Fixed::operator/(const Fixed& rhs) const
+// {
+// 	long long tmpnum = ((this->getRawBits() / (1 << _fractBits)) / (rhs.getRawBits()));
+// 	Fixed tmp;
+// 	tmp.setRawBits(tmpnum);
+// 	return tmp;
+// }
 
 Fixed Fixed::operator/(const Fixed& rhs) const
 {
-	long long tmpnum = ((this->getRawBits() / (1 << _fractBits)) / (rhs.getRawBits()));
-	Fixed tmp;
-	tmp.setRawBits(tmpnum);
-	return tmp;
+    Fixed result;
+    result.setRawBits(((long long)this->getRawBits() << _fractBits) / rhs.getRawBits());
+    return result;
 }
 
 Fixed& Fixed::operator++()
 {
-	_rawBits++;
+	this->_rawBits += (1 << 8);
 	return (*this);
 }
 
@@ -135,7 +162,7 @@ Fixed Fixed::operator++(int)
 
 Fixed& Fixed::operator--()
 {
-	_rawBits--;
+	this->_rawBits -= (1 << 8);
 	return (*this);
 }
 
