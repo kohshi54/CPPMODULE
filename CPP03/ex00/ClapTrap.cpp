@@ -65,7 +65,10 @@ void ClapTrap::takeDamage(unsigned int amount)
 				<< " "
 				<< "points of damage!" << std::endl;
 
-	this->setHitPoints(this->getHitPoints() - amount);
+	if (this->getHitPoints() < amount)
+		this->setHitPoints(0);
+	else
+		this->setHitPoints(this->getHitPoints() - amount);
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
