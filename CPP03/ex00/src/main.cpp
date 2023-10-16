@@ -8,5 +8,5 @@ int main()
 	a.beRepaired(10);
 	a.attack("world");
 	a.takeDamage(15);
-	a.attack("yes");
+	a.attack("no");
 }
