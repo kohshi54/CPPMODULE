@@ -1,4 +1,4 @@
-NAME = ClapTrap
+NAME = ScavTrap
 CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 DEPFLAGS = -MMD -MP -MF $(DEP_DIR)$*.d
@@ -6,7 +6,7 @@ DEPFLAGS = -MMD -MP -MF $(DEP_DIR)$*.d
 SRC_DIR		= src/
 OBJ_DIR		= obj/
 DEP_DIR		= dep/
-SRCS = main.cpp ClapTrap.cpp
+SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:%.cpp=%.o))
 DEPS = $(addprefix $(DEP_DIR), $(SRCS:%.cpp=%.d))
 
