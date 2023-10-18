@@ -1,8 +1,8 @@
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-	ScavTrap a("a");
+	FragTrap a("a");
 	a.attack("hello");
 	std::cout << a.getName() << std::endl;
 	std::cout << a.getHitPoints() << std::endl;
@@ -13,4 +13,5 @@ int main()
 	a.attack("world");
 	a.takeDamage(15);
 	a.attack("no");
+	a.highFivesGuys();
 }
