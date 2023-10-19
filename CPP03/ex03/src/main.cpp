@@ -1,8 +1,8 @@
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-	FragTrap a("a");
+	DiamondTrap a("a");
 	a.attack("hello");
 	std::cout << a.getName() << std::endl;
 	std::cout << a.getHitPoints() << std::endl;
@@ -14,4 +14,5 @@ int main()
 	a.takeDamage(15);
 	a.attack("no");
 	a.highFivesGuys();
+	a.whoAmI();
 }
