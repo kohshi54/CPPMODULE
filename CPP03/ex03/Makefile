@@ -1,6 +1,6 @@
 NAME = DiamondTrap
 CC = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g -Wshadow -Wno-shadow
 DEPFLAGS = -MMD -MP -MF $(DEP_DIR)$*.d
 
 SRC_DIR		= src/
