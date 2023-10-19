@@ -16,6 +16,22 @@ ScavTrap::ScavTrap(const std::string& name) : ClapTrap(name)
 	std::cout << "ScavTrap parameterized constructor called." << std::endl;
 }
 
+ScavTrap::ScavTrap(const ScavTrap& other)
+{
+	std::cout << "Copy constructor called." << std::endl;
+	*this = other;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& rhs)
+{
+	std::cout << "Copy assignment operator called." << std::endl;
+	this->setName(rhs.getName());
+	this->setHitPoints(rhs.getHitPoints());
+	this->setEnergyPoints(rhs.getEnergyPoints());
+	this->setAttackDamage(rhs.getAttackDamage());
+	return *this;
+}
+
 ScavTrap::~ScavTrap()
 {
 	std::cout << "ScavTrap destructor called." << std::endl;

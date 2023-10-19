@@ -16,6 +16,22 @@ FragTrap::FragTrap(const std::string& name) : ClapTrap(name)
 	std::cout << "FragTrap parameterized constructor called." << std::endl;
 }
 
+FragTrap::FragTrap(const FragTrap& other)
+{
+	std::cout << "Copy constructor called." << std::endl;
+	*this = other;
+}
+
+FragTrap& FragTrap::operator=(const FragTrap& rhs)
+{
+	std::cout << "Copy assignment operator called." << std::endl;
+	this->setName(rhs.getName());
+	this->setHitPoints(rhs.getHitPoints());
+	this->setEnergyPoints(rhs.getEnergyPoints());
+	this->setAttackDamage(rhs.getAttackDamage());
+	return *this;
+}
+
 FragTrap::~FragTrap()
 {
 	std::cout << "FragTrap destructor called." << std::endl;
