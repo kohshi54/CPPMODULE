@@ -33,6 +33,11 @@ fclean : clean
 
 re : fclean all
 
+test:
+	cmake -S . -B build
+	cmake --build build
+	./build/ScavTrap-googletest
+
 -include $(DEPS)
 
 .PHONY : clean fclean re all test
