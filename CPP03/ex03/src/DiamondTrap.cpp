@@ -28,6 +28,7 @@ DiamondTrap::DiamondTrap(const DiamondTrap& other)
 DiamondTrap& DiamondTrap::operator=(const DiamondTrap& rhs)
 {
 	std::cout << "Copy assignment operator called." << std::endl;
+	this->_name = rhs._name;
 	this->setName(rhs.getName());
 	this->setHitPoints(rhs.getHitPoints());
 	this->setEnergyPoints(rhs.getEnergyPoints());
