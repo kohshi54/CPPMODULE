@@ -13,6 +13,8 @@ Cat::Cat(const Cat &other)
 
 Cat &Cat::operator=(const Cat &rhs)
 {
+	if (this == &rhs)
+		return *this;
     std::cout << "Cat copy assignment operator called" << std::endl;
     this->_type = rhs._type;
     return *this;

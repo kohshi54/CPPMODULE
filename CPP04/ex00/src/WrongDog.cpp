@@ -13,6 +13,8 @@ WrongDog::WrongDog(const WrongDog &other)
 
 WrongDog &WrongDog::operator=(const WrongDog &rhs)
 {
+	if (this == &rhs)
+		return *this;
     std::cout << "WrongDog copy assignment operator called" << std::endl;
     this->_type = rhs._type;
     return *this;
