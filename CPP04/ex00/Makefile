@@ -6,7 +6,7 @@ DEPFLAGS = -MMD -MP -MF $(DEP_DIR)$*.d
 SRC_DIR		= src/
 OBJ_DIR		= obj/
 DEP_DIR		= dep/
-SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongDog.cpp WrongCat.cpp
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:%.cpp=%.o))
 DEPS = $(addprefix $(DEP_DIR), $(SRCS:%.cpp=%.d))
 
@@ -18,8 +18,13 @@ all :  $(OBJ_DIR) $(DEP_DIR) $(NAME)
 $(OBJ_DIR) $(DEP_DIR) :
 	@mkdir -p $@
 
+ifdef TEST
+$(OBJ_DIR)%.o: %.cpp
+	$(CC) -DTEST $(CXXFLAGS) $(DEPFLAGS) $(INCLUDES) -c $< -o $@
+else
 $(OBJ_DIR)%.o: %.cpp
 	$(CC) $(CXXFLAGS) $(DEPFLAGS) $(INCLUDES) -c $< -o $@
+endif
 
 $(NAME) : $(OBJS)
 	$(CC) $(CXXFLAGS) $(OBJS) -o $(NAME)
@@ -32,6 +37,9 @@ fclean : clean
 	rm -f $(NAME)
 
 re : fclean all
+
+test : clean
+	@make TEST=1
 
 # test:
 # 	cmake -S . -B build
