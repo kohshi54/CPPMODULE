@@ -3,6 +3,7 @@
 Cat::Cat() : Animal("Cat")
 {
     std::cout << "Cat constructor called" << std::endl;
+    this->_brain = new Brain();
 }
 
 Cat::Cat(const Cat &other)
@@ -23,6 +24,7 @@ Cat &Cat::operator=(const Cat &rhs)
 Cat::~Cat()
 {
     std::cout << "Cat destructor called" << std::endl;
+    delete this->_brain;
 }
 
 void Cat::makeSound() const

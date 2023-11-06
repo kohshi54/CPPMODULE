@@ -3,6 +3,7 @@
 Dog::Dog() : Animal("Dog")
 {
     std::cout << "Dog constructor called" << std::endl;
+    this->_brain = new Brain();
 }
 
 Dog::Dog(const Dog &other)
@@ -23,6 +24,7 @@ Dog &Dog::operator=(const Dog &rhs)
 Dog::~Dog()
 {
     std::cout << "Dog destructor called" << std::endl;
+    delete this->_brain;
 }
 
 void Dog::makeSound() const
