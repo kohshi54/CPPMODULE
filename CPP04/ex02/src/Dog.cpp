@@ -6,18 +6,23 @@ Dog::Dog() : Animal("Dog")
     this->_brain = new Brain();
 }
 
-Dog::Dog(const Dog &other)
+// to copy base objects as well, Animal copy constructor is called.
+Dog::Dog(const Dog &other) : Animal(other)
 {
     std::cout << "Dog copy constructor called" << std::endl;
-    *this = other;
+    this->_brain = new Brain(*other._brain);
+    // *this = other;
 }
 
 Dog &Dog::operator=(const Dog &rhs)
 {
-	if (this == &rhs)
-		return *this;
-    std::cout << "Dog copy assignment operator called" << std::endl;
-	this->_type = rhs._type;
+    if (this != &rhs)
+    {
+        std::cout << "Dog copy assignment operator called" << std::endl;
+        delete this->_brain;
+        this->_brain = new Brain(*rhs._brain);
+        Animal::operator=(rhs);
+    }
     return *this;
 }
 

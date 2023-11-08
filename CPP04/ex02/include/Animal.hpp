@@ -9,7 +9,7 @@ class Animal
         std::string _type;
 
     public:
-        AAnimal();
+        Animal();
         Animal(std::string type);
         Animal(const Animal &other);
         Animal &operator=(const Animal &rhs);
@@ -21,3 +21,4 @@ class Animal
 };
 
 #endif
+
