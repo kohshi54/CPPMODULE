@@ -1,13 +1,13 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("Dog")
+Dog::Dog() : AAnimal("Dog")
 {
     std::cout << "Dog constructor called" << std::endl;
     this->_brain = new Brain();
 }
 
 // to copy base objects as well, Animal copy constructor is called.
-Dog::Dog(const Dog &other) : Animal(other)
+Dog::Dog(const Dog &other) : AAnimal(other)
 {
     std::cout << "Dog copy constructor called" << std::endl;
     this->_brain = new Brain(*other._brain);
@@ -21,7 +21,7 @@ Dog &Dog::operator=(const Dog &rhs)
         std::cout << "Dog copy assignment operator called" << std::endl;
         delete this->_brain;
         this->_brain = new Brain(*rhs._brain);
-        Animal::operator=(rhs);
+        AAnimal::operator=(rhs);
     }
     return *this;
 }

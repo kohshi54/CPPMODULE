@@ -1,12 +1,12 @@
 #include "Cat.hpp"
 
-Cat::Cat() : Animal("Cat")
+Cat::Cat() : AAnimal("Cat")
 {
     std::cout << "Cat constructor called" << std::endl;
     this->_brain = new Brain();
 }
 
-Cat::Cat(const Cat &other) : Animal(other)
+Cat::Cat(const Cat &other) : AAnimal(other)
 {
     std::cout << "Cat copy constructor called" << std::endl;
     this->_brain = new Brain(*other._brain);
@@ -21,7 +21,7 @@ Cat &Cat::operator=(const Cat &rhs)
         Brain *newBrain = new Brain(*rhs._brain);
         delete this->_brain;
         this->_brain = newBrain;
-        Animal::operator=(rhs);
+        AAnimal::operator=(rhs);
     }
     return *this;
 }
