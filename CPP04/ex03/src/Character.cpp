@@ -17,7 +17,7 @@ Character::Character(const Character &other) : _name(other._name)
         this->_inventory[i] = other._inventory[i] ? other._inventory[i]->clone() : NULL;
     }
 }
- 
+
 Character &Character::operator=(const Character &rhs)
 {
     if (this != &rhs)
