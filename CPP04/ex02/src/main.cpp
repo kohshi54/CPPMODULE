@@ -5,13 +5,9 @@ int main()
 {
     const AAnimal* j = new Dog();
     const AAnimal* i = new Cat();
+    // AAnimal *willfail = new AAnimal();
 
-    // for(;;)
-    // {
-
-    // }
-
-    delete j;//should not create a leak
+    delete j;
     delete i;
 
     return 0;
