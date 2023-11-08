@@ -9,6 +9,15 @@ Character::Character() : _name(""), _inventory()
     std::cout << "Character default constructor called" << std::endl;
 }
 
+Character::Character(std::string const &name) : _name(name)
+{
+    for(int i = 0; i < 4; ++i)
+    {
+        this->_inventory[i] = NULL;
+    }
+    std::cout << "Character parameterized constructor called" << std::endl;
+}
+
 Character::Character(const Character &other) : _name(other._name)
 {
     std::cout << "Character copy constructor called" << std::endl;
