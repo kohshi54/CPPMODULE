@@ -6,12 +6,21 @@ int main()
     const Animal* j = new Dog();
     const Animal* i = new Cat();
 
-    // for(;;)
-    // {
+	Animal *array[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
+	
+    for(int i = 0; i < 4; ++i)
+    {
+		delete array[i];
+	}
+	// j->makeSound();
+	// i->makeSound();
 
-    // }
+	Dog basic;
+	{
+		Dog tmp = basic;
+	}
 
-    delete j;//should not create a leak
+    delete j;
     delete i;
 
     return 0;
