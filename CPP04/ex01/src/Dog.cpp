@@ -19,11 +19,8 @@ Dog &Dog::operator=(const Dog &rhs)
     if (this != &rhs)
     {
         std::cout << "Dog copy assignment operator called" << std::endl;
-        Brain* newBrain = new Brain();
-        for (int i = 0; i < 100; ++i)
-            newBrain->ideas[i] = rhs._brain->ideas[i];
         delete this->_brain;
-        this->_brain = newBrain;
+        this->_brain = new Brain(*rhs._brain);
         Animal::operator=(rhs);
     }
     return *this;
