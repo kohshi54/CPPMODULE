@@ -19,7 +19,6 @@ class Character : public ICharacter
         void unequip(int idx);
         void use(int idx, ICharacter& target);
 
-
     private:
         std::string _name;
         AMateria *_inventory[4];

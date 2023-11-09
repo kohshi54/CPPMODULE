@@ -19,9 +19,9 @@ all :  $(OBJ_DIR) $(DEP_DIR) $(NAME)
 $(OBJ_DIR) $(DEP_DIR) :
 	@mkdir -p $@
 
-ifdef TEST
+ifdef DEBUG
 $(OBJ_DIR)%.o: %.cpp
-	$(CC) -DTEST $(CXXFLAGS) $(DEPFLAGS) $(INCLUDES) -c $< -o $@
+	$(CC) -DDEBUG $(CXXFLAGS) $(DEPFLAGS) $(INCLUDES) -c $< -o $@
 else
 $(OBJ_DIR)%.o: %.cpp
 	$(CC) $(CXXFLAGS) $(DEPFLAGS) $(INCLUDES) -c $< -o $@
@@ -39,8 +39,8 @@ fclean : clean
 
 re : fclean all
 
-test : clean
-	@make TEST=1
+debug : clean
+	@make DEBUG=1
 
 # test:
 # 	cmake -S . -B build
@@ -49,4 +49,4 @@ test : clean
 
 -include $(DEPS)
 
-.PHONY : clean fclean re all test
+.PHONY : clean fclean re all debug

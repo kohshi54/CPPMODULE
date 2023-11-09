@@ -2,19 +2,25 @@
 
 Cure::Cure() : AMateria("cure")
 {
-	std::cout << "Cure default constructor called" << std::endl;
+#ifdef DEBUG
+	std::cout << GREEN << "Cure default constructor called" << RESET << std::endl;
+#endif
 }
 
 Cure::Cure(const Cure &other) : AMateria(other)
 {
-	std::cout << "Cure copy constructor called" << std::endl;
+#ifdef DEBUG
+	std::cout << GREEN << "Cure copy constructor called" << RESET << std::endl;
+#endif
 }
 
 Cure &Cure::operator=(const Cure &rhs)
 {
 	if (this != &rhs)
 	{
-		std::cout << "Cure copy assignment operator called" << std::endl;
+#ifdef DEBUG
+		std::cout << GREEN << "Cure copy assignment operator called" << RESET << std::endl;
+#endif
 		AMateria::operator=(rhs);
 	}
 	return *this;
@@ -22,7 +28,9 @@ Cure &Cure::operator=(const Cure &rhs)
 
 Cure::~Cure()
 {
-	std::cout << "Cure destructor called" << std::endl;
+#ifdef DEBUG
+	std::cout << GREEN << "Cure destructor called" << RESET << std::endl;
+#endif
 }
 
 AMateria* Cure::clone() const

@@ -2,17 +2,23 @@
 
 AMateria::AMateria() : _type("")
 {
-    std::cout << "AMaetria default constructor called" << std::endl;
+#ifdef DEBUG
+	std::cout << GREEN << "AMaetria default constructor called" << RESET << std::endl;
+#endif
 }
 
 AMateria::AMateria(std::string const &type) : _type(type)
 {
-    std::cout << "AMaetria parameterized constructor called" << std::endl;
+#ifdef DEBUG
+    std::cout << GREEN << "AMaetria parameterized constructor called" << RESET << std::endl;
+#endif
 }
 
 AMateria::AMateria(const AMateria &other) : _type(other.getType())
 {
-    std::cout << "AMaetria copy constructor called" << std::endl;
+#ifdef DEBUG
+    std::cout << GREEN << "AMaetria copy constructor called" << RESET << std::endl;
+#endif
 }
 
 AMateria &AMateria::operator=(const AMateria &rhs)
@@ -26,7 +32,9 @@ AMateria &AMateria::operator=(const AMateria &rhs)
 
 AMateria::~AMateria()
 {
-    std::cout << "AMateria destructor called" << std::endl;
+#ifdef DEBUG
+    std::cout << GREEN << "AMateria destructor called" << RESET << std::endl;
+#endif
 }
 
 std::string const &AMateria::getType() const
@@ -36,5 +44,5 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-    std::cout << "AMateria use function called" << target.getName() << std::endl;
+    std::cout << GREEN << "AMateria use function called" << target.getName() << std::endl;
 }

@@ -6,7 +6,9 @@ Character::Character() : _name(""), _inventory()
     {
         this->_inventory[i] = NULL;
     }
+#ifdef DEBUG
     std::cout << "Character default constructor called" << std::endl;
+#endif
 }
 
 Character::Character(std::string const &name) : _name(name)
@@ -15,12 +17,16 @@ Character::Character(std::string const &name) : _name(name)
     {
         this->_inventory[i] = NULL;
     }
-    std::cout << "Character parameterized constructor called" << std::endl;
+#ifdef DEBUG
+    std::cout << GREEN << "Character parameterized constructor called" << RESET << std::endl;
+#endif
 }
 
 Character::Character(const Character &other) : _name(other._name)
 {
-    std::cout << "Character copy constructor called" << std::endl;
+#ifdef DEBUG
+    std::cout << GREEN << "Character copy constructor called" << RESET << std::endl;
+#endif
     for (int i = 0; i < 4; ++i)
     {
         this->_inventory[i] = other._inventory[i] ? other._inventory[i]->clone() : NULL;
@@ -31,7 +37,9 @@ Character &Character::operator=(const Character &rhs)
 {
     if (this != &rhs)
     {
-        std::cout << "Character copy assignment operator called" << std::endl;
+#ifdef DEBUG
+        std::cout << GREEN << "Character copy assignment operator called" << RESET << std::endl;
+#endif
         for (int i = 0; i < 4; ++i)
         {
             delete this->_inventory[i];
@@ -48,7 +56,9 @@ Character::~Character()
     {
         delete this->_inventory[i];
     }
-    std::cout << "Character destructor called" << std::endl;
+#ifdef DEBUG
+    std::cout << GREEN << "Character destructor called" << RESET << std::endl;
+#endif
 }
 
 std::string const &Character::getName() const

@@ -4,6 +4,7 @@
 #include <iostream>
 #include "ICharacter.hpp"
 class ICharacter;
+#include "Color.hpp"
 
 class AMateria
 {
