@@ -14,22 +14,22 @@ AAnimal::AAnimal(std::string type) : _type(type)
 #endif
 }
 
-AAnimal::AAnimal(const AAnimal &other)
+AAnimal::AAnimal(const AAnimal &other) : _type(other._type)
 {
 #ifdef DEBUG
     std::cout << "AAnimal copy constructor called" << std::endl;
 #endif
-    *this = other;
 }
 
 AAnimal &AAnimal::operator=(const AAnimal &rhs)
 {
-	if (this == &rhs)
-		return *this;
-#ifdef DEBUG
-	std::cout << YELLOW << "AAnimal copy assignment operator called" << RESET << std::endl;
-#endif
-	this->_type = rhs._type;
+	if (this != &rhs)
+	{
+	#ifdef DEBUG
+		std::cout << YELLOW << "AAnimal copy assignment operator called" << RESET << std::endl;
+	#endif
+		this->_type = rhs._type;
+	}
     return *this;
 }
 

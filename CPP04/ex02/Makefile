@@ -19,10 +19,10 @@ all :  $(OBJ_DIR) $(DEP_DIR) $(NAME)
 $(OBJ_DIR) $(DEP_DIR) :
 	@mkdir -p $@
 
-ifdef DEBUG
+ifeq ($(DEBUG),1)
 $(OBJ_DIR)%.o: %.cpp
 	$(CC) -DDEBUG $(CXXFLAGS) $(DEPFLAGS) $(INCLUDES) -c $< -o $@
-else ifeq(ERROR, 1)
+else ifeq ($(ERROR),1)
 $(OBJ_DIR)%.o: %.cpp
 	$(CC) -DERROR $(CXXFLAGS) $(DEPFLAGS) $(INCLUDES) -c $< -o $@
 else
