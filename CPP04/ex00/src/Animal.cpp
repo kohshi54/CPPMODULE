@@ -10,10 +10,9 @@ Animal::Animal(std::string type) : _type(type)
     std::cout << GREEN << "Animal parametrized constructor called" << RESET << std::endl;
 }
 
-Animal::Animal(const Animal &other)
+Animal::Animal(const Animal &other) : _type(other._type)
 {
     std::cout << GREEN << "Animal copy constructor called" << RESET << std::endl;
-    *this = other;
 }
 
 Animal &Animal::operator=(const Animal &rhs)

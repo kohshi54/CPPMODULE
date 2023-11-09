@@ -5,19 +5,18 @@ Cat::Cat() : Animal("Cat")
     std::cout << GREEN << "Cat constructor called" << RESET << std::endl;
 }
 
-Cat::Cat(const Cat &other)
+Cat::Cat(const Cat &other) : Animal(other)
 {
 	std::cout << GREEN << "Cat copy constructor called" << RESET << std::endl;
-	*this = other;
 }
 
 Cat &Cat::operator=(const Cat &rhs)
 {
 	if (this != &rhs)
 	{
+		std::cout << YELLOW << "Cat copy assignment operator called" << RESET << std::endl;
 		Animal::operator=(rhs);
 	}
-	std::cout << YELLOW << "Cat copy assignment operator called" << RESET << std::endl;
     return *this;
 }
 

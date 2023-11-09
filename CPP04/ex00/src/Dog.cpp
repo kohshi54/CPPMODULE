@@ -5,19 +5,18 @@ Dog::Dog() : Animal("Dog")
     std::cout << GREEN << "Dog constructor called" << RESET << std::endl;
 }
 
-Dog::Dog(const Dog &other)
+Dog::Dog(const Dog &other) : Animal(other)
 {
     std::cout << GREEN << "Dog copy constructor called" << RESET << std::endl;
-    *this = other;
 }
 
 Dog &Dog::operator=(const Dog &rhs)
 {
 	if (this != &rhs)
 	{
+		std::cout << YELLOW << "Dog copy assignment operator called" << RESET << std::endl;
 		Animal::operator=(rhs);
 	}
-	std::cout << YELLOW << "Dog copy assignment operator called" << RESET << std::endl;
     return *this;
 }
 
