@@ -13,9 +13,10 @@ Cat::Cat(const Cat &other)
 
 Cat &Cat::operator=(const Cat &rhs)
 {
-	if (this == &rhs)
-		return *this;
-    this->_type = rhs._type;
+	if (this != &rhs)
+	{
+		Animal::operator=(rhs);
+	}
 	std::cout << YELLOW << "Cat copy assignment operator called" << RESET << std::endl;
     return *this;
 }

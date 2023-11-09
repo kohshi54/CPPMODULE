@@ -18,10 +18,11 @@ Animal::Animal(const Animal &other)
 
 Animal &Animal::operator=(const Animal &rhs)
 {
-	if (this == &rhs)
-		return *this;
-	std::cout << YELLOW << "Animal copy assignment operator called" << RESET << std::endl;
-	this->_type = rhs._type;
+	if (this != &rhs)
+	{
+		std::cout << YELLOW << "Animal copy assignment operator called" << RESET << std::endl;
+		this->_type = rhs._type;
+	}
     return *this;
 }
 

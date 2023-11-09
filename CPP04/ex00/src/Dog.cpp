@@ -13,9 +13,10 @@ Dog::Dog(const Dog &other)
 
 Dog &Dog::operator=(const Dog &rhs)
 {
-	if (this == &rhs)
-		return *this;
-	this->_type = rhs._type;
+	if (this != &rhs)
+	{
+		Animal::operator=(rhs);
+	}
 	std::cout << YELLOW << "Dog copy assignment operator called" << RESET << std::endl;
     return *this;
 }
