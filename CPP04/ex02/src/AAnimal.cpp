@@ -2,12 +2,12 @@
 
 AAnimal::AAnimal() : _type("")
 {
-    std::cout << "AAnimal constructor called" << std::endl;
+    std::cout << GREEN << "AAnimal constructor called" << RESET << std::endl;
 }
 
 AAnimal::AAnimal(std::string type) : _type(type)
 {
-    std::cout << "AAnimal parametrized constructor called" << std::endl;
+    std::cout << GREEN << "AAnimal parametrized constructor called" << RESET << std::endl;
 }
 
 AAnimal::AAnimal(const AAnimal &other)
@@ -20,14 +20,14 @@ AAnimal &AAnimal::operator=(const AAnimal &rhs)
 {
 	if (this == &rhs)
 		return *this;
-	std::cout << "AAnimal copy assignment operator called" << std::endl;
+	std::cout << YELLOW << "AAnimal copy assignment operator called" << RESET << std::endl;
 	this->_type = rhs._type;
     return *this;
 }
 
 AAnimal::~AAnimal()
 {
-    std::cout << "AAnimal destructor called" << std::endl;
+    std::cout << RED << "AAnimal destructor called" << RESET << std::endl;
 }
 
 const std::string &AAnimal::getType() const
