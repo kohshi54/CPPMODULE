@@ -26,10 +26,10 @@ Animal &Animal::operator=(const Animal &rhs)
 {
 	if (this == &rhs)
 		return *this;
-	#ifdef DEBUG
+	this->_type = rhs._type;
+#ifdef DEBUG
 	std::cout << YELLOW << "Animal copy assignment operator called" << RESET << std::endl;
 #endif
-	this->_type = rhs._type;
     return *this;
 }
 
