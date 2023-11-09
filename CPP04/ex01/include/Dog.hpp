@@ -14,6 +14,7 @@ class Dog : public Animal
         ~Dog();
 
         void makeSound() const;
+		const Brain *getBrain() const;
     
     private:
         Brain* _brain;
