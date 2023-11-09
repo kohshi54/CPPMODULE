@@ -25,3 +25,10 @@ int main()
     delete src;
     return 0;
 }
+
+#ifdef DEBUG
+__attribute__((destructor))
+static void destructor() {
+    system("leaks -q Animal");
+}
+#endif
