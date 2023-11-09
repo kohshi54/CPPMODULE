@@ -2,30 +2,30 @@
 
 Cat::Cat() : Animal("Cat")
 {
-    std::cout << "Cat constructor called" << std::endl;
+    std::cout << GREEN << "Cat constructor called" << RESET << std::endl;
 }
 
 Cat::Cat(const Cat &other)
 {
-    std::cout << "Cat copy constructor called" << std::endl;
-    *this = other;
+	std::cout << GREEN << "Cat copy constructor called" << RESET << std::endl;
+	*this = other;
 }
 
 Cat &Cat::operator=(const Cat &rhs)
 {
 	if (this == &rhs)
 		return *this;
-    std::cout << "Cat copy assignment operator called" << std::endl;
     this->_type = rhs._type;
+	std::cout << YELLOW << "Cat copy assignment operator called" << RESET << std::endl;
     return *this;
 }
 
 Cat::~Cat()
 {
-    std::cout << "Cat destructor called" << std::endl;
+    std::cout << RED << "Cat destructor called" << RESET << std::endl;
 }
 
 void Cat::makeSound() const
 {
-    std::cout << "meow meow" << std::endl;
+	std::cout << "meow meow" << std::endl;
 }
