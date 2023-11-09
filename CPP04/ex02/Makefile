@@ -22,6 +22,9 @@ $(OBJ_DIR) $(DEP_DIR) :
 ifdef DEBUG
 $(OBJ_DIR)%.o: %.cpp
 	$(CC) -DDEBUG $(CXXFLAGS) $(DEPFLAGS) $(INCLUDES) -c $< -o $@
+else ifeq(ERROR, 1)
+$(OBJ_DIR)%.o: %.cpp
+	$(CC) -DERROR $(CXXFLAGS) $(DEPFLAGS) $(INCLUDES) -c $< -o $@
 else
 $(OBJ_DIR)%.o: %.cpp
 	$(CC) $(CXXFLAGS) $(DEPFLAGS) $(INCLUDES) -c $< -o $@
@@ -42,6 +45,9 @@ re : fclean all
 debug : clean
 	@make DEBUG=1
 
+error : clean
+	@make ERROR=1
+
 # test:
 # 	cmake -S . -B build
 # 	cmake --build build
@@ -49,4 +55,4 @@ debug : clean
 
 -include $(DEPS)
 
-.PHONY : clean fclean re all test
+.PHONY : clean fclean re all debug error

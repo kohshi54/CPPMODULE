@@ -5,7 +5,9 @@ int main()
 {
     const AAnimal* j = new Dog();
     const AAnimal* i = new Cat();
-    // AAnimal *willfail = new AAnimal();
+#ifdef ERROR
+	AAnimal *willfail = new AAnimal(); // compile error, since abstract class cannot be instantiated.
+#endif
 
 	j->makeSound();
 	i->makeSound();
