@@ -18,10 +18,10 @@ MateriaSource::MateriaSource(const MateriaSource& other)
 #endif
     for (int i = 0; i < 4; ++i)
     {
-        if (other._sources[i])
-            _sources[i] = other._sources[i]->clone();
+		if (other._sources[i])
+			this->_sources[i] = other._sources[i]->clone();
         else
-            _sources[i] = NULL;
+			this->_sources[i] = NULL;
     }
 }
 
@@ -31,11 +31,11 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
     {
         for (int i = 0; i < 4; ++i)
         {
-            delete _sources[i];
+            delete this->_sources[i];
             if (other._sources[i])
-                _sources[i] = other._sources[i]->clone();
+                this->_sources[i] = other._sources[i]->clone();
             else
-                _sources[i] = NULL;
+                this->_sources[i] = NULL;
         }
     }
     return *this;
@@ -55,9 +55,9 @@ void MateriaSource::learnMateria(AMateria* m)
 {
     for (int i = 0; i < 4; ++i)
     {
-        if (_sources[i] == NULL)
+        if (this->_sources[i] == NULL)
         {
-            _sources[i] = m;
+            this->_sources[i] = m;
             break ;
         }
     }
@@ -67,8 +67,8 @@ AMateria* MateriaSource::createMateria(const std::string& type)
 {
     for (int i = 0; i < 4; ++i)
     {
-        if (_sources[i] && _sources[i]->getType() == type)
-            return _sources[i]->clone();
+        if (this->_sources[i] && this->_sources[i]->getType() == type)
+            return this->_sources[i]->clone();
     }
     return NULL;
 }
