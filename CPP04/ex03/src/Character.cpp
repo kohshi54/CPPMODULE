@@ -7,7 +7,7 @@ Character::Character() : _name(""), _inventory()
         this->_inventory[i] = NULL;
     }
 #ifdef DEBUG
-    std::cout << "Character default constructor called" << std::endl;
+    std::cout << GREEN << "Character default constructor called" << std::endl;
 #endif
 }
 
@@ -38,7 +38,7 @@ Character &Character::operator=(const Character &rhs)
     if (this != &rhs)
     {
 #ifdef DEBUG
-        std::cout << GREEN << "Character copy assignment operator called" << RESET << std::endl;
+        std::cout << YELLOW << "Character copy assignment operator called" << RESET << std::endl;
 #endif
         for (int i = 0; i < 4; ++i)
         {
@@ -57,7 +57,7 @@ Character::~Character()
         delete this->_inventory[i];
     }
 #ifdef DEBUG
-    std::cout << GREEN << "Character destructor called" << RESET << std::endl;
+    std::cout << RED << "Character destructor called" << RESET << std::endl;
 #endif
 }
 

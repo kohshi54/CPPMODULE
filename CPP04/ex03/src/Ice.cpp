@@ -19,7 +19,7 @@ Ice &Ice::operator=(const Ice& other)
 	if (this != &other)
 	{
 #ifdef DEBUG
-		std::cout << GREEN << "Ice copy assignment operator called" << RESET << std::endl;
+		std::cout << YELLOW << "Ice copy assignment operator called" << RESET << std::endl;
 #endif
 		AMateria::operator=(other);
 	}
@@ -29,7 +29,7 @@ Ice &Ice::operator=(const Ice& other)
 Ice::~Ice()
 {
 #ifdef DEBUG
-	std::cout << GREEN << "Ice destructor called" << RESET << std::endl;
+	std::cout << RED << "Ice destructor called" << RESET << std::endl;
 #endif
 }
 

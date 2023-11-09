@@ -14,7 +14,7 @@ MateriaSource::MateriaSource()
 MateriaSource::MateriaSource(const MateriaSource& other)
 {
 #ifdef DEBUG
-    std::cout << DEBUG << "MateriaSource copy constructor called" << RESET << std::endl;
+    std::cout << GREEN << "MateriaSource copy constructor called" << RESET << std::endl;
 #endif
     for (int i = 0; i < 4; ++i)
     {
@@ -27,6 +27,9 @@ MateriaSource::MateriaSource(const MateriaSource& other)
 
 MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 {
+#ifdef DEBUG
+    std::cout << YELLOW << "MateriaSource copy constructor called" << RESET << std::endl;
+#endif
     if (this != &other)
     {
         for (int i = 0; i < 4; ++i)
@@ -43,7 +46,7 @@ MateriaSource& MateriaSource::operator=(const MateriaSource& other)
 MateriaSource::~MateriaSource()
 {
 #ifdef DEBUG
-    std::cout << GREEN << "MateriaSource destructor called" << RESET << std::endl;
+    std::cout << RED << "MateriaSource destructor called" << RESET << std::endl;
 #endif
     for (int i = 0; i < 4; ++i)
     {

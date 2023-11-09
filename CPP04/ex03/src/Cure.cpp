@@ -19,7 +19,7 @@ Cure &Cure::operator=(const Cure &rhs)
 	if (this != &rhs)
 	{
 #ifdef DEBUG
-		std::cout << GREEN << "Cure copy assignment operator called" << RESET << std::endl;
+		std::cout << YELLOW << "Cure copy assignment operator called" << RESET << std::endl;
 #endif
 		AMateria::operator=(rhs);
 	}
@@ -29,7 +29,7 @@ Cure &Cure::operator=(const Cure &rhs)
 Cure::~Cure()
 {
 #ifdef DEBUG
-	std::cout << GREEN << "Cure destructor called" << RESET << std::endl;
+	std::cout << RED << "Cure destructor called" << RESET << std::endl;
 #endif
 }
 

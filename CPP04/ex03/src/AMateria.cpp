@@ -27,13 +27,16 @@ AMateria &AMateria::operator=(const AMateria &rhs)
     {
         this->_type = rhs._type;
     }
+#ifdef DEBUG
+    std::cout << YELLOW << "AMaetria copy assignment operator called" << RESET << std::endl;
+#endif
     return *this;
 }
 
 AMateria::~AMateria()
 {
 #ifdef DEBUG
-    std::cout << GREEN << "AMateria destructor called" << RESET << std::endl;
+    std::cout << RED << "AMateria destructor called" << RESET << std::endl;
 #endif
 }
 
@@ -44,5 +47,5 @@ std::string const &AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-    std::cout << GREEN << "AMateria use function called" << target.getName() << std::endl;
+    std::cout << "AMateria use function called by " << target.getName() << std::endl;
 }
