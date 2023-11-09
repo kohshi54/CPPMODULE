@@ -2,6 +2,7 @@
 #define ANIMAL_HPP
 
 #include <iostream>
+#include "Color.hpp"
 
 class Animal
 {

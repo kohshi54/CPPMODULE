@@ -3,25 +3,13 @@
 
 int main()
 {
-    const Animal* j = new Dog();
-    const Animal* i = new Cat();
-
-	Animal *array[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
+	const Animal *array[4] = {new Dog(), new Dog(), new Cat(), new Cat()};
 	
     for(int i = 0; i < 4; ++i)
     {
+		array[i]->makeSound();
 		delete array[i];
 	}
-	// j->makeSound();
-	// i->makeSound();
-
-	Dog basic;
-	{
-		Dog tmp = basic;
-	}
-
-    delete j;
-    delete i;
 
     return 0;
 }
