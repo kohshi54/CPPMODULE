@@ -28,6 +28,8 @@
     * With public inheritance, the derived class inherits methods and attributes with the same access specifiers, except for private methods, which cannot be accessed directly by the derived class.
     * With protected inheritance, the derived class inherits both public and protected methods and attributes as protected. Private methods remain inaccessible to the derived class.
     * With private inheritance, the derived class inherits all methods and attributes as private, and private methods from the base class cannot be accessed directly by the derived class.
+   
+  * Diamond problem
 
 ## CPP04 ~ Subtype polymorphism, abstract classes, interfaces ~
 * What is polymorphism?\
