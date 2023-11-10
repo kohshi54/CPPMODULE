@@ -10,7 +10,7 @@
 * What is operator overloading?\
 
 * What is Orthodox Canonical form?\
-  Orthodox Canonical form is the basic method under c++98 that the compiler creates automatically when not specified, which includes the four below.
+  The Orthodox Canonical Form in C++98 is a pattern where the compiler automatically provides default implementations for the following four special member functions when they are not explicitly defined by the user:
   ```
   class Animal()
   {
