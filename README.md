@@ -4,8 +4,22 @@
 
 ## CPP01 ~ Memory allocation, pointers to members, references, switch statement ~
 
-## CPP02 ~ Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form ~
+## CPP02 ~ Ad-hoc polymorphism, operator overloading, Orthodox Canonical class form ~
+* What is ad-hoc polymorphism?\
 
+* What is operator overloading?\
+
+* What is Orthodox Canonical form?\
+  Orthodox Canonical form is the basic method under c++98 that the compiler creates automatically when not specified, which includes the four below.
+  ```
+  class Animal()
+  {
+      Animal();                                // Constructor
+      Animal(const Animal &other);             // Copy constructor
+      Animal::operator=(const Animal &rhs);    // Copy assignment operator
+      ~Animal();                               // Destructor
+  };
+  ```
 ## CPP03 ~ Inheritance ~
 * What is inheritance?\
   Inheritance is a feature of C++, which can use methods and attributes from diffrent class.
@@ -14,13 +28,13 @@
   {
       public:
         void makeSound();
-  }
+  };
 
   class Dog() : public Animal
   {
     public:
       void hitPoll();
-  }
+  };
   ```
   ```
   {
@@ -41,17 +55,17 @@
     class Dog() : public Animal
     {
       [...]
-    }
+    };
 
     class Cat() : public Animal
     {
       [...]
-    }
+    };
 
     class DogAndCat() : public Dog, public Cat
     {
       [...]
-    }
+    };
     ```
     ```
     {
@@ -66,17 +80,17 @@
     class Dog() : public virtual Animal // add virtual to avoid diamond inheritance
     {
       [...]
-    }
+    };
 
     class Cat() : public virtual Animal // add virtual to avoid diamond  inheritance
     {
       [...]
-    }
+    };
 
     class DogAndCat() : public Dog, public Cat
     {
       [...]
-    }
+    };
     ```
     ```
     {
