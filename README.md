@@ -32,7 +32,7 @@
         virtual ~IAnimal() {}
         virtual void makeDound() = 0;
         virtual void move() = 0;
-    }
+    };
     ```
     * By setting virtual to destructor, the appropriate destructor is called, even the acutal object is derived class as below.
       ```
