@@ -53,13 +53,13 @@
 * What is inheritance?\
   Inheritance is a feature of C++, which can use methods and attributes from diffrent class.
   ```
-  class Animal()
+  class Animal
   {
       public:
         void makeSound();
   };
 
-  class Dog() : public Animal
+  class Dog : public Animal
   {
     public:
       void hitPoll();
@@ -81,17 +81,17 @@
   * Diamond problem
     Diamond problem can be occurred when a class inherits multiple class with the same base class.\
     ```
-    class Dog() : public Animal
+    class Dog : public Animal
     {
       [...]
     };
 
-    class Cat() : public Animal
+    class Cat : public Animal
     {
       [...]
     };
 
-    class DogAndCat() : public Dog, public Cat
+    class DogAndCat : public Dog, public Cat
     {
       [...]
     };
@@ -106,17 +106,17 @@
   * Virtual inheritance
     To avoid diamond problem, virtual inheritance can be used.
     ```
-    class Dog() : public virtual Animal // add virtual to avoid diamond inheritance
+    class Dog : public virtual Animal // add virtual to avoid diamond inheritance
     {
       [...]
     };
 
-    class Cat() : public virtual Animal // add virtual to avoid diamond  inheritance
+    class Cat : public virtual Animal // add virtual to avoid diamond  inheritance
     {
       [...]
     };
 
-    class DogAndCat() : public Dog, public Cat
+    class DogAndCat : public Dog, public Cat
     {
       [...]
     };
@@ -144,7 +144,7 @@
 * What is abstract class?\
   Abstract class is a class which has at least one pure virtual function and cannnot be instantiated.
   ```
-  class AAnimal()
+  class AAnimal
   {
       public:
         virtual void makeSound() = 0; // pure virtual function.
@@ -156,7 +156,7 @@
 * What is interface?\
     Interface is a class that does not have any implementation of method and the attribute. Although C++ does not have interface feature officially, near feature can be implented by making all class method pure virtual function.
     ```
-    class IAnimal()
+    class IAnimal
     {
         public:
           virtual ~IAnimal() {}
