@@ -38,7 +38,7 @@
       ```
       {
           Animal *a = new Dog();
-          delete Dog();
+          delete a;
       }
       ```
       * Here, the destructor of the Dog class should be called. If the derived class (Dog class) contains features that are additional to those in the Animal class, it may lead to undesirable behavior such as memory leaks.
