@@ -6,6 +6,7 @@
 
 ## CPP02 ~ Ad-hoc polymorphism, operator overloading, Orthodox Canonical class form ~
 * What is ad-hoc polymorphism?\
+  Ad-hoc polymorphism is ...
 
 * What is operator overloading?\
   Operator overloading is a feature in C++, which provides a more intuitive interface for custom classes, and it can be implemented as a member function of the class.
