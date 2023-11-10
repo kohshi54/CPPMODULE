@@ -8,6 +8,35 @@
 * What is ad-hoc polymorphism?\
 
 * What is operator overloading?\
+  Operator overloading is a feature in C++, which provides a more intuitive interface for custom classes, and it can be implemented as a member function of the class.
+  For example, C++ does not provide native Fixed class, but can be implemented using operator overloading as below.
+  ```
+  class Fixed
+  {
+  	public:
+      [...]
+  		Fixed operator+(const Fixed& rhs) const;
+  	
+  	private:
+  		int _rawBits;
+  		static const int _fractBits = 8;
+  };
+
+  Fixed Fixed::operator+(const Fixed& rhs) const
+  {
+      Fixed result;
+      result.setRawBits(this->getRawBits() + rhs.getRawBits());
+      return (result);
+  }
+  ```
+  ```
+  {
+      Fixed a;
+      Fixed b;
+      a + b
+  }
+  ```
+  * Here, a + b can be done by operator overloading of + operator.
 
 * What is Orthodox Canonical form?\
   The Orthodox Canonical Form in C++98 is a pattern where the compiler automatically provides default implementations for the following four special member functions when they are not explicitly defined by the user:
