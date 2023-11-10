@@ -23,11 +23,11 @@
   }
   ```
   * Here, makeSound() can be used even though the method is not defined in Dog class, because it derived from Animal class.
-  * Note that access privileges of derived class can be varied based on the access specifier (public, protected, private).
-    * If not specified, the acess specifier is set to private.
-    * If public, derived class inherits the method and attributes as the same access specifier, except for private method. Private method cannot be accessed directly from derived class.
-    * If protected, derived class inherits public and protected methods and attributes as protected. Private method cannot be accessd directly from derived class.
-    * If private, derived class inhrits all methods and attributes as private. Private method cannot be accessd directly from derived class.
+  * Note that the access privileges of a derived class can vary based on the access specifier (public, protected, private):
+    * If not specified, the access specifier defaults to private.
+    * With public inheritance, the derived class inherits methods and attributes with the same access specifiers, except for private methods, which cannot be accessed directly by the derived class.
+    * With protected inheritance, the derived class inherits both public and protected methods and attributes as protected. Private methods remain inaccessible to the derived class.
+    * With private inheritance, the derived class inherits all methods and attributes as private, and private methods from the base class cannot be accessed directly by the derived class.
 
 ## CPP04 ~ Subtype polymorphism, abstract classes, interfaces ~
 * What is polymorphism?\
