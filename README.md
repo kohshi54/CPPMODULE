@@ -1,5 +1,11 @@
 # CPPMODULE
 
+## CPP00 ~ Namespaces, classes, member functions, stdio streams, initialization lists, static, const ~
+
+## CPP01 ~ Memory allocation, pointers to members, references, switch statement ~
+
+## CPP02 ~ Ad-hoc polymorphism, operator overloading and Orthodox Canonical class form ~
+
 ## CPP03 ~ Inheritance ~
 * What is inheritance?\
   Inheritance is a feature of C++, which can use methods and attributes from diffrent class.
