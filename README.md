@@ -13,13 +13,13 @@
   ```
   class Fixed
   {
-  	public:
+    public:
       [...]
-  		Fixed operator+(const Fixed& rhs) const;
-  	
-  	private:
-  		int _rawBits;
-  		static const int _fractBits = 8;
+      Fixed operator+(const Fixed& rhs) const;
+
+    private:
+      int _rawBits;
+      static const int _fractBits = 8;
   };
 
   Fixed Fixed::operator+(const Fixed& rhs) const
