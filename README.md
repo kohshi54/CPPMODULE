@@ -30,6 +30,11 @@
   The const keyword in C++ indicates that a variable's value is not to be changed after its initialization.
 
 ## CPP01 ~ Memory allocation, pointers to members, references, switch statement ~
+* How to allocate memory?
+  To allocate memory dynamically, use 'new' for allocation and 'delete' for deallocation in C++. In C, 'malloc()' is used for allocation and 'free()' for deallocation.
+
+* What is references?
+  A reference provides an alternative means to access data by sharing its address and value simultaneously, and is defined using the '&' symbol.
 
 ## CPP02 ~ Ad-hoc polymorphism, operator overloading, Orthodox Canonical class form ~
 * What is ad-hoc polymorphism?\
