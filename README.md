@@ -46,7 +46,7 @@
   {
       Animal();                                // Constructor
       Animal(const Animal &other);             // Copy constructor
-      Animal::operator=(const Animal &rhs);    // Copy assignment operator
+      Animal &operator=(const Animal &rhs);    // Copy assignment operator
       ~Animal();                               // Destructor
   };
   ```
@@ -148,3 +148,25 @@
       }
       ```
       * Here, the destructor of the Dog class should be called. If the derived class (Dog class) contains features that are additional to those in the Animal class, it may lead to undesirable behavior such as memory leaks.
+
+
+## Unresolved issues
+* For copy constructor implementation should i copy attributes directly or use copy assignment operator?
+  ```
+  Animal::Animal(const Animal &other)
+  {      
+      *this = other
+  }
+  or
+  Animal::Animal(const Animal &other)
+  {
+    this->_type = rhs._type;
+  }
+
+  Animal &Animal::operator=(const Animal &rhs)
+  {
+      this->_type = rhs._type;
+  }
+  
+  ```
+  * Of courese, using initializer list is clearly different but for the above two, which should it be used?
