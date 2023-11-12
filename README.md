@@ -80,7 +80,7 @@
     * With private inheritance, the derived class inherits all methods and attributes as private, and private methods from the base class cannot be accessed directly by the derived class.
    
   * Diamond problem and Virtual inheritance\
-    Diamond problem can be occurred when a class inherits multiple class with the same base class. To avoid diamond problem, virtual inheritance can be used.
+    The diamond problem occurs when a class inherits from multiple classes that share the same base class. This leads to the creation of multiple copies of the base class's attributes and methods in the derived class, resulting in ambiguity. To prevent the diamond problem, virtual inheritance can be used, which ensures that only one copy of the base class's attributes and methods is inherited, thereby eliminating ambiguity.
     ```
     class Dog : public virtual Animal // add virtual to avoid diamond inheritance
     {
@@ -102,7 +102,7 @@
         DogAndCat dc;
     }
     ```
-    * By adding virual, creating ambiguous Animal instance can be avoided.
+    * By adding 'virtual', only one set of 'Animal' methods and attributes will be created, which avoids the creation of an ambiguous 'Animal' instance.
 
 ## CPP04 ~ Subtype polymorphism, abstract classes, interfaces ~
 * What is polymorphism?\
