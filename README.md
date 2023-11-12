@@ -1,6 +1,8 @@
 # CPPMODULE
 
 ## CPP00 ~ Namespaces, classes, member functions, stdio streams, initialization lists, static, const ~
+* What is namespaces?
+  Namespace is a scope for identifiers. Type, function name, variables name collision from diffrent libraries or files can be avoided.
 
 ## CPP01 ~ Memory allocation, pointers to members, references, switch statement ~
 
@@ -79,7 +81,7 @@
     * With protected inheritance, the derived class inherits both public and protected methods and attributes as protected. Private methods remain inaccessible to the derived class.
     * With private inheritance, the derived class inherits all methods and attributes as private, and private methods from the base class cannot be accessed directly by the derived class.
    
-* Diamond problem and Virtual inheritance\
+* Diamond problem and virtual inheritance\
     The diamond problem occurs when a class inherits from multiple classes that share the same base class. This leads to the creation of multiple copies of the base class's attributes and methods in the derived class, resulting in ambiguity. To prevent the diamond problem, virtual inheritance can be used, which ensures that only one copy of the base class's attributes and methods is inherited, thereby eliminating ambiguity.
     ```
     class Dog : public virtual Animal // add virtual to avoid diamond inheritance
@@ -157,7 +159,7 @@
   {      
       *this = other
   }
-  or
+  // or
   Animal::Animal(const Animal &other)
   {
     this->_type = rhs._type;
