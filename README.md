@@ -23,8 +23,11 @@
   ```
   * Here, member attribute _type is initialized with the passed argument 'type', and _brain with an empty string.
 
-* What is static?
-  Static is an identifier for functions and attributes, to contain only one instance. If a class attribute is speciefied as static, the object will be created only once and shared within multiple instances.
+* What is static?\
+  Static is a storage class specifier in C++ that, when used with class attributes, allows the attribute to be shared across all instances of the class. This means that the attribute is not duplicated for each object; instead, there is a single instance of the attribute. If a function is declared as static, it can be called on the class itself rather than on an object of the class.
+
+* What is const?\
+  The const keyword in C++ indicates that a variable's value is not to be changed after its initialization.
 
 ## CPP01 ~ Memory allocation, pointers to members, references, switch statement ~
 
