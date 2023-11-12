@@ -73,13 +73,13 @@
   }
   ```
   * Here, makeSound() can be used even though the method is not defined in Dog class, because it derived from Animal class.
-  * Note that the access privileges of a derived class can vary based on the access specifier (public, protected, private):
+  * Note that the access privileges of a derived class can be limited by the access specifier (public, protected, private):
     * If not specified, the access specifier defaults to private.
     * With public inheritance, the derived class inherits methods and attributes with the same access specifiers, except for private methods, which cannot be accessed directly by the derived class.
     * With protected inheritance, the derived class inherits both public and protected methods and attributes as protected. Private methods remain inaccessible to the derived class.
     * With private inheritance, the derived class inherits all methods and attributes as private, and private methods from the base class cannot be accessed directly by the derived class.
    
-  * Diamond problem and Virtual inheritance\
+* Diamond problem and Virtual inheritance\
     The diamond problem occurs when a class inherits from multiple classes that share the same base class. This leads to the creation of multiple copies of the base class's attributes and methods in the derived class, resulting in ambiguity. To prevent the diamond problem, virtual inheritance can be used, which ensures that only one copy of the base class's attributes and methods is inherited, thereby eliminating ambiguity.
     ```
     class Dog : public virtual Animal // add virtual to avoid diamond inheritance
