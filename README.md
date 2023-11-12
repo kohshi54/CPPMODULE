@@ -1,8 +1,17 @@
 # CPPMODULE
 
 ## CPP00 ~ Namespaces, classes, member functions, stdio streams, initialization lists, static, const ~
-* What is namespaces?
-  Namespace is a scope for identifiers. Type, function name, variables name collision from diffrent libraries or files can be avoided.
+* What is namespaces?\
+  A namespace is a scope for identifiers, used to prevent collisions of types, function names, and variable names from different libraries or files. It allows for the same name to be used in different contexts without confusion.
+
+* What is class?\
+  A class in is a type that groups functions and attributes to represent and manipulate data as a single entity.
+
+* What is member functions?\
+  A member function, a method, is defined within a class to operate on instances of that class, manipulating the object's data or providing functionality.
+
+* What is stdio streams?\
+  In C++, stream objects are used for input and output operations. The standard input/output streams, such as cin for standard input and cout for standard output, are used to read from the keyboard and write to the console, respectively. File streams, like ifstream and ofstream, are used for file operations. Thus, in C++, I/O operations are commonly performed using stream abstractions.
 
 ## CPP01 ~ Memory allocation, pointers to members, references, switch statement ~
 
@@ -172,3 +181,5 @@
   
   ```
   * Of courese, using initializer list is clearly different but for the above two, which should it be used?
+
+* What is object exactly? Is it diffrent from instance?
