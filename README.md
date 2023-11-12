@@ -23,6 +23,9 @@
   ```
   * Here, member attribute _type is initialized with the passed argument 'type', and _brain with an empty string.
 
+* What is static?
+  Static is an identifier for functions and attributes, to contain only one instance. If a class attribute is speciefied as static, the object will be created only once and shared within multiple instances.
+
 ## CPP01 ~ Memory allocation, pointers to members, references, switch statement ~
 
 ## CPP02 ~ Ad-hoc polymorphism, operator overloading, Orthodox Canonical class form ~
