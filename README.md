@@ -79,33 +79,8 @@
     * With protected inheritance, the derived class inherits both public and protected methods and attributes as protected. Private methods remain inaccessible to the derived class.
     * With private inheritance, the derived class inherits all methods and attributes as private, and private methods from the base class cannot be accessed directly by the derived class.
    
-  * Diamond problem\
-    Diamond problem can be occurred when a class inherits multiple class with the same base class.
-    ```
-    class Dog : public Animal
-    {
-      [...]
-    };
-
-    class Cat : public Animal
-    {
-      [...]
-    };
-
-    class DogAndCat : public Dog, public Cat
-    {
-      [...]
-    };
-    ```
-    ```
-    {
-        DogAndCat dc;
-    }
-    ```
-    * Here two Animal object is created??
-
-  * Virtual inheritance\
-    To avoid diamond problem, virtual inheritance can be used.
+  * Diamond problem and Virtual inheritance\
+    Diamond problem can be occurred when a class inherits multiple class with the same base class. To avoid diamond problem, virtual inheritance can be used.
     ```
     class Dog : public virtual Animal // add virtual to avoid diamond inheritance
     {
