@@ -13,6 +13,16 @@
 * What is stdio streams?\
   In C++, stream objects are used for input and output operations. The standard input/output streams, such as cin for standard input and cout for standard output, are used to read from the keyboard and write to the console, respectively. File streams, like ifstream and ofstream, are used for file operations. Thus, in C++, I/O operations are commonly performed using stream abstractions.
 
+* What is initialization lists?\
+  An initialization list is a feature in C++ that allows member attributes to be initialized directly within a constructor's declaration. Const member can be initialize using this feature.
+  ```
+  Animal::Animal(const string &type) : _type(type), _brain("") // initialization lists.
+  {
+      [...]
+  }
+  ```
+  * Here, member attribute _type is initialized with the passed argument 'type', and _brain with an empty string.
+
 ## CPP01 ~ Memory allocation, pointers to members, references, switch statement ~
 
 ## CPP02 ~ Ad-hoc polymorphism, operator overloading, Orthodox Canonical class form ~
