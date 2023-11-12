@@ -106,7 +106,7 @@
 
 ## CPP04 ~ Subtype polymorphism, abstract classes, interfaces ~
 * What is subtype polymorphism?\
-  Subtype polymorphism is the feature of inheriance where some class derives from some class, the derived class can be recognized as base class peraining the feature of derived methods and attributes. This provide same interface for function that differs in process depending on types.
+  Subtype polymorphism is a feature of inheritance where a derived class, which originates from a base class, is recognized as an instance of the base class while retaining its own derived methods and attributes. This provides a uniform interface for functions that vary in implementation depending on the types involved.
   ```
   // Dog/Cat class inherits Animal class which has a method makeSound().
   Animal *Animal a = new Dog();
