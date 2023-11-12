@@ -80,7 +80,7 @@
     * With private inheritance, the derived class inherits all methods and attributes as private, and private methods from the base class cannot be accessed directly by the derived class.
    
   * Diamond problem
-    Diamond problem can be occurred when a class inherits multiple class with the same base class.\
+    Diamond problem can be occurred when a class inherits multiple class with the same base class.
     ```
     class Dog : public Animal
     {
