@@ -6,7 +6,7 @@
 
 ## CPP02 ~ Ad-hoc polymorphism, operator overloading, Orthodox Canonical class form ~
 * What is ad-hoc polymorphism?\
-  Ad-hoc polymorphism is ...
+  Ad-hoc polymorphism allows functions with the same name to be applied to different types of input, typically through operator or function overloading.
 
 * What is operator overloading?\
   Operator overloading is a feature in C++, which provides a more intuitive interface for custom classes, and it can be implemented as a member function of the class.
@@ -105,8 +105,8 @@
     * By adding 'virtual', only one set of 'Animal' methods and attributes will be created, which avoids the creation of an ambiguous 'Animal' instance.
 
 ## CPP04 ~ Subtype polymorphism, abstract classes, interfaces ~
-* What is polymorphism?\
-  Polymorphism is object behaves as it is.
+* What is subtype polymorphism?\
+  Subtype polymorphism is the feature of inheriance where some class derives from some class, the derived class can be recognized as base class peraining the feature of derived methods and attributes. This provide same interface for function that differs in process depending on types.
   ```
   // Dog/Cat class inherits Animal class which has a method makeSound().
   Animal *Animal a = new Dog();
