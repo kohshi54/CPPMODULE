@@ -151,7 +151,7 @@
 
 
 ## Unresolved issues
-* For copy constructor implementation should i copy attributes directly or use copy assignment operator?
+* For copy constructor implementation, should i copy attributes directly or use copy assignment operator?
   ```
   Animal::Animal(const Animal &other)
   {      
