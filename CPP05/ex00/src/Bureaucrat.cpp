@@ -12,10 +12,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade
 #ifdef DEBUG
     std::cout << "Bureaucrat parameterized constructor called" << std::endl;
 #endif
-    if (this->_grade <= 1)
-        throw Bureaucrat::GradeTooHighException();
-    else if (this->_grade >= 150)
-        throw Bureaucrat::GradeTooLowException();
+    validateGrade();
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other.getName()), _grade(other.getGrade())
@@ -66,9 +63,8 @@ void Bureaucrat::incrementGrade()
 #ifdef DEBUG
     std::cout << "Bureaucrat incrementGrade() called" << std::endl;
 #endif
-    if (this->_grade <= 1)
-        throw Bureaucrat::GradeTooHighException();
     this->_grade--; // 1 is the highest.
+    validateGrade();
 }
 
 void Bureaucrat::decrementGrade()
@@ -76,9 +72,19 @@ void Bureaucrat::decrementGrade()
 #ifdef DEBUG
     std::cout << "Bureaucrat decrementGrade() called" << std::endl;
 #endif
-    if (this->_grade >= 150)
-        throw Bureaucrat::GradeTooLowException();
     this->_grade++; // 150 is the lowest.
+    validateGrade();
+}
+
+void Bureaucrat::validateGrade()
+{
+#ifdef DEBUG
+    std::cout << "Bureaucrat validateGrade() called" << std::endl;
+#endif
+    if (this->_grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    else if (this->_grade > 150)
+        throw Bureaucrat::GradeTooLowException();
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
