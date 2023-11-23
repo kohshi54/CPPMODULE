@@ -5,7 +5,8 @@ int main(void)
     try
     {
         // Bureaucrat("bob", 151);
-        Bureaucrat("bob", 0);
+        Bureaucrat h = Bureaucrat("bob", 0);
+        std::cout << h << std::endl;
     }
     catch (std::exception &e)
     {

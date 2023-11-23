@@ -2,6 +2,7 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
+#include "Color.hpp"
 
 class Bureaucrat
 {
