@@ -8,6 +8,14 @@ Form::Form() : _name(""), _isSigned(0), _requiredGrade(1)
     validateRequiredGrade();
 }
 
+Form::Form(const std::string& name, bool isSigned, int requiredGrade) : _name(name), _isSigned(isSigned), _requiredGrade(requiredGrade)
+{
+#ifdef DEBUG
+    std::cout << GREEN << "Form parameterized construcotr called" << RESET << std::endl;
+#endif
+    validateRequiredGrade();
+}
+
 Form::Form(const Form& other) : _name(other.getName()), _isSigned(getIsSigned()), _requiredGrade(other.getRequiredGrade())
 {
 #ifdef DEBUG
@@ -87,7 +95,7 @@ void Form::beSigned(const Bureaucrat& b)
 
 std::ostream& operator<<(std::ostream& os, const Form& f)
 {
-    os << f.getName() << ", form signedState: " << f.getIsSigned() << ", requiredGrade: " << f.getRequiredGrade();
+    os << "Form name: " << f.getName() << ", signedState: " << f.getIsSigned() << ", requiredGrade: " << f.getRequiredGrade();
     return os;
 }
 

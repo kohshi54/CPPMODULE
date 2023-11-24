@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void)
 {
@@ -8,37 +9,57 @@ int main(void)
         {
             Bureaucrat h = Bureaucrat("bob", 1);
             std::cout << h << std::endl;
-            h.decrementGrade();
-            std::cout << h << std::endl;
-            h.incrementGrade();
-            std::cout << h << std::endl;
-            h.incrementGrade();
+            Form f = Form("visa", 0, 2);
+            std::cout << f << std::endl;
+            h.signForm(f);
         }
         catch (std::exception &e)
         {
             std::cout << e.what() << std::endl;
         }
     }
-    std::cout << "============================" << std::endl;
+    std::cout << "==============================" << std::endl;
     {
-        // Initial grade too high
+        // grade too low so cannot sign form
         try
         {
-            Bureaucrat h = Bureaucrat("bob", 0);
+            Bureaucrat h = Bureaucrat("bob", 4);
             std::cout << h << std::endl;
+            Form f = Form("visa", 0, 2);
+            std::cout << f << std::endl;
+            h.signForm(f);
         }
         catch (std::exception &e)
         {
             std::cout << e.what() << std::endl;
         }
     }
-    std::cout << "============================" << std::endl;
+    std::cout << "==============================" << std::endl;
     {
-        // Initial grade too low
+        // form cannot create because the grade is too low
         try
         {
-            Bureaucrat h = Bureaucrat("bob", 151);
+            Bureaucrat h = Bureaucrat("bob", 4);
             std::cout << h << std::endl;
+            Form f = Form("visa", 0, 151);
+            std::cout << f << std::endl;
+            h.signForm(f);
+        }
+        catch (std::exception &e)
+        {
+            std::cout << e.what() << std::endl;
+        }
+    }
+    std::cout << "==============================" << std::endl;
+    {
+        // form cannot create because the grade is too high
+        try
+        {
+            Bureaucrat h = Bureaucrat("bob", 4);
+            std::cout << h << std::endl;
+            Form f = Form("visa", 0, 0);
+            std::cout << f << std::endl;
+            h.signForm(f);
         }
         catch (std::exception &e)
         {
