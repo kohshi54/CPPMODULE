@@ -97,6 +97,22 @@ void Bureaucrat::validateGrade()
     }
 }
 
+void Bureaucrat::signForm(Form& f) const
+{
+#ifdef DEBUG
+    std::cout << MAGENTA << "Bureaucrat signForm() called" << RESET << std::endl;
+#endif
+    try
+    {
+        f.beSigned(*this);
+        std::cout << this->getName() << " signed " << f.getName() << std::endl;
+    }
+    catch (Form::GradeTooLowException &e)
+    {
+        std::cout << this->getName() << " couldn't sign " << f.getName() << " because the grade is too low" << std::endl;
+    }
+}
+
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
 {
     os << b.getName() << ", bureaucrat grade " << b.getGrade();
