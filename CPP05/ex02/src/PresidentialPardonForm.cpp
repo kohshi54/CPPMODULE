@@ -1,13 +1,16 @@
 #include "PresidentialPardonForm.hpp"
 
+/*
+// 名前なしrequiredGradeなしは存在しないとしてデフォルトコンストラクタは作らない
 PresidentialPardonForm::PresidentialPardonForm() : AForm()
 {
 #ifdef DEBUG
     std::cout << GREEN << "PresidentialPardonForm constructor called" << RESET << std::endl;
 #endif
 }
+*/
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string &name, int isSigned, int requiredGrade) : AForm(name, isSigned, requiredGrade)
+PresidentialPardonForm::PresidentialPardonForm(const std::string &name) : AForm(name, PresidentialPardonForm::_requiredGradeToSign)
 {
 #ifdef DEBUG
     std::cout << GREEN << "PresidentialPardonForm parameterized constructor called" << RESET << std::endl;
@@ -42,28 +45,18 @@ PresidentialPardonForm::~PresidentialPardonForm()
 #endif
 }
 
-void PresidentialPardonForm::validateRequiredGradeToSign(const Bureaucrat& b)
+void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
-    if (b.getGrade() <= this->_requiredGradeToSign)
+    if (this->getIsSigned() == false)
     {
-        b.signForm(*this);
+        std::cout << "Failed to execute: form not signed" << std::endl;
+        throw std::runtime_error("Form is not signed.");
     }
-    else
+    if (executor.getGrade() > this->_requiredGradeToExec)
     {
-        // throw exeption?
-        Bureaucrat::GradeTooLowException();
+        std::cout << "Failed to execute: grade too low" << std::endl;
+        throw Bureaucrat::GradeTooLowException();
     }
-}
 
-void PresidentialPardonForm::validateRequiredGradeToExecute(const Bureaucrat& b)
-{
-    if (b.getGrade() <= this->_requiredGradeToExec)
-    {
-        // execute form?
-    }
-    else
-    {
-        // throw exeption?
-        Bureaucrat::GradeTooLowException();
-    }
+    std::cout << getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
