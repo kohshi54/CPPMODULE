@@ -1,13 +1,16 @@
 #include "RobotomyRequestForm.hpp"
 
+/*
+// 名前なしrequiredGradeなしは存在しないとしてデフォルトコンストラクタは作らない
 RobotomyRequestForm::RobotomyRequestForm() : AForm()
 {
 #ifdef DEBUG
     std::cout << GREEN << "RobotomyRequestForm constructor called" << RESET << std::endl;
 #endif
 }
+*/
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string &name, int isSigned, int requiredGrade) : AForm(name, isSigned, requiredGrade)
+RobotomyRequestForm::RobotomyRequestForm(const std::string &name) : AForm(name, RobotomyRequestForm::_requiredGradeToSign)
 {
 #ifdef DEBUG
     std::cout << GREEN << "RobotomyRequestForm parameterized constructor called" << RESET << std::endl;
@@ -42,28 +45,25 @@ RobotomyRequestForm::~RobotomyRequestForm()
 #endif
 }
 
-void RobotomyRequestForm::validateRequiredGradeToSign(const Bureaucrat& b)
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-    if (b.getGrade() <= this->_requiredGradeToSign)
+    if (this->getIsSigned() == false)
     {
-        b.signForm(*this);
+        std::cout << "Failed to execute: form not signed" << std::endl;
+        throw std::runtime_error("Form is not signed.");
     }
-    else
+    if (executor.getGrade() > this->_requiredGradeToExec)
     {
-        // throw exeption?
-        Bureaucrat::GradeTooLowException();
+        std::cout << "Failed to execute: grade too low" << std::endl;
+        throw Bureaucrat::GradeTooLowException();
     }
-}
 
-void RobotomyRequestForm::validateRequiredGradeToExecute(const Bureaucrat& b)
-{
-    if (b.getGrade() <= this->_requiredGradeToExec)
-    {
-        // execute form?
-    }
+    std::cout << "Drilling noises..." << std::endl;
+
+    std::srand(static_cast<unsigned int>(std::time(NULL)));
+
+    if (std::rand() % 2)
+        std::cout << getName() << " has been robotomized successfully." << std::endl;
     else
-    {
-        // throw exeption?
-        Bureaucrat::GradeTooLowException();
-    }
+        std::cout << "Robotomy of " << getName() << " failed." << std::endl;
 }

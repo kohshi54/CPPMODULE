@@ -2,19 +2,19 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
+#include <fstream>
 
-class RobotomyRequestForm : AForm
+class RobotomyRequestForm : public AForm
 {
     public:
-        RobotomyRequestForm();
-        RobotomyRequestForm(const std::string &name, int isSigned, int requiredGrade);
+        RobotomyRequestForm(const std::string &name);
         RobotomyRequestForm(const RobotomyRequestForm& other);
         ~RobotomyRequestForm();
 
-        void validateRequiredGradeToSign(const Bureaucrat& b);
-        void validateRequiredGradeToExecute(const Bureaucrat& b);
-
+        void execute(Bureaucrat const & executor) const;
+        
     private:
+        RobotomyRequestForm();
         RobotomyRequestForm& operator=(const RobotomyRequestForm& rhs);
         static const int _requiredGradeToSign = 72;
         static const int _requiredGradeToExec = 45;
