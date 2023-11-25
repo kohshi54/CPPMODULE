@@ -1,6 +1,6 @@
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat() : _name(""), _grade(70)
+Bureaucrat::Bureaucrat() : _name(""), _grade(150)
 {
 #ifdef DEBUG
     std::cout << GREEN << "Bureaucrat defualt constructor called" << RESET << std::endl;
@@ -115,12 +115,15 @@ void Bureaucrat::signForm(AForm& f) const
 
 void Bureaucrat::executeForm(AForm const & form)
 {
-    // check and execute
-    // if success
-    // std::cout << <bureaucrat> executed <form> << std::endl;
-    // else
-    // std::cout << print an explicit error message << std::endl;
-    (void)form;
+    try
+    {
+        form.execute(*this);
+        std::cout << this->getName() << " executed " << form.getName() << std::endl;
+    }
+    catch (std::exception& e)
+    {
+        std::cerr << this->getName() << " couldn't execute " << form.getName() << " because: " << e.what() << std::endl;
+    }
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& b)
