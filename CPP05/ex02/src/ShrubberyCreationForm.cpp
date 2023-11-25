@@ -1,13 +1,16 @@
 #include "ShrubberyCreationForm.hpp"
 
+/*
+// 名前なしrequiredGradeなしは存在しないとしてデフォルトコンストラクタは作らない
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm()
 {
 #ifdef DEBUG
     std::cout << GREEN << "ShrubberyCreationForm constructor called" << RESET << std::endl;
 #endif
 }
+*/
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &name, int isSigned, int requiredGrade) : AForm(name, isSigned, requiredGrade)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &name, int requiredGrade) : AForm(name, requiredGrade)
 {
 #ifdef DEBUG
     std::cout << GREEN << "ShrubberyCreationForm parameterized constructor called" << RESET << std::endl;
@@ -42,28 +45,42 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 #endif
 }
 
-void ShrubberyCreationForm::validateRequiredGradeToSign(const Bureaucrat& b)
+void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 {
-    if (b.getGrade() <= this->_requiredGradeToSign)
+    if (this->getIsSigned() == false)
     {
-        b.signForm(*this);
+        std::cout << "Failed to execute: form not signed" << std::endl;
+        throw std::runtime_error("Form is not signed.");
     }
-    else
+    if (executor.getGrade() > this->_requiredGradeToExec)
     {
-        // throw exeption?
-        Bureaucrat::GradeTooLowException();
+        std::cout << "Failed to execute: grade too low" << std::endl;
+        throw Bureaucrat::GradeTooLowException();
     }
-}
 
-void ShrubberyCreationForm::validateRequiredGradeToExecute(const Bureaucrat& b)
-{
-    if (b.getGrade() <= this->_requiredGradeToExec)
+    std::string filename = this->getName() + "_shrubbery";
+
+    std::ofstream file(filename.c_str());
+    if (!file)
     {
-        // execute form?
+        throw std::runtime_error("Failed to open file: " + filename);
     }
-    else
-    {
-        // throw exeption?
-        Bureaucrat::GradeTooLowException();
-    }
+
+    file << "    _\\/_\n"
+         << "     /\\ \n"
+         << "     /\\ \n"
+         << "    /  \\ \n"
+         << "    /~~\\o \n"
+         << "   /o   \\ \n"
+         << "  /~~*~~~\\ \n"
+         << " o/    o \\ \n"
+         << " /~~~~~~~~\\~` \n"
+         << "/__*_______\\ \n"
+         << "     || \n"
+         << "   \\====/ \n"
+         << "    \\__/ \n";
+
+    file.close();
+
+    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
 }

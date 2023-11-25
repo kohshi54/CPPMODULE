@@ -2,19 +2,19 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 #include "AForm.hpp"
+#include <fstream>
 
-class ShrubberyCreationForm : AForm
+class ShrubberyCreationForm : public AForm
 {
     public:
-        ShrubberyCreationForm();
-        ShrubberyCreationForm(const std::string &name, int isSigned, int requiredGrade);
+        ShrubberyCreationForm(const std::string &name, int requiredGrade);
         ShrubberyCreationForm(const ShrubberyCreationForm& other);
         ~ShrubberyCreationForm();
 
-        void validateRequiredGradeToSign(const Bureaucrat& b);
-        void validateRequiredGradeToExecute(const Bureaucrat& b);
-
+        void execute(Bureaucrat const & executor) const;
+        
     private:
+        ShrubberyCreationForm();
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm& rhs);
         static const int _requiredGradeToSign = 145;
         static const int _requiredGradeToExec = 137;
