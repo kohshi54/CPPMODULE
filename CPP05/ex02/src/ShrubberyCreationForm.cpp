@@ -10,7 +10,7 @@ ShrubberyCreationForm::ShrubberyCreationForm() : AForm()
 }
 */
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string &name, int requiredGrade) : AForm(name, requiredGrade)
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string &name) : AForm(name, this->_requiredGradeToSign)
 {
 #ifdef DEBUG
     std::cout << GREEN << "ShrubberyCreationForm parameterized constructor called" << RESET << std::endl;

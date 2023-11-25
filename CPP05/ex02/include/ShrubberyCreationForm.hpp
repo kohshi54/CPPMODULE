@@ -7,7 +7,7 @@
 class ShrubberyCreationForm : public AForm
 {
     public:
-        ShrubberyCreationForm(const std::string &name, int requiredGrade);
+        ShrubberyCreationForm(const std::string &name);
         ShrubberyCreationForm(const ShrubberyCreationForm& other);
         ~ShrubberyCreationForm();
 
