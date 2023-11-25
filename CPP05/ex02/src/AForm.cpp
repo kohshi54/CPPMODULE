@@ -114,3 +114,9 @@ const char *AForm::GradeTooLowException::what() const throw()
 #endif
     return "grade too low";
 }
+
+void AForm::execute(Bureaucrat const & executor) const
+{
+    // AForm::validateRequiredGradeToExecute();
+    (void)executor;
+}

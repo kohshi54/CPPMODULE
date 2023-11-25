@@ -11,7 +11,7 @@ class AForm
         AForm();
         AForm(const std::string& name, bool isSigned, int requiredGrade);
         AForm(const AForm& other);
-        ~AForm();
+        virtual ~AForm();
 
         class GradeTooHighException : public std::exception
         {
@@ -29,8 +29,11 @@ class AForm
         int getRequiredGrade() const;
         bool getIsSigned() const;
         void validateRequiredGrade();
+        virtual void validateRequiredGradeToSign(const Bureaucrat& b) = 0;
+        virtual void validateRequiredGradeToExecute(const Bureaucrat& b) = 0;
 
         void beSigned(const Bureaucrat& b);
+        void execute(Bureaucrat const & executor) const;
 
     private:
         AForm& operator=(const AForm& rhs); // privateで未定義にしておくことで使えなくする。
