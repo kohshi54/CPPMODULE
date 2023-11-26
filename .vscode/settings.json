@@ -56,5 +56,6 @@
 		"algorithm": "cpp",
 		"execution": "cpp",
 		"tmp": "cpp"
-	}
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }
