@@ -10,7 +10,7 @@ Form::Form() : _name(""), _isSigned(0), _requiredGrade(1)
 }
 */
 
-Form::Form(const std::string& name, bool isSigned, int requiredGrade) : _name(name), _isSigned(isSigned), _requiredGrade(requiredGrade)
+Form::Form(const std::string& name, int requiredGrade) : _name(name), _isSigned(false), _requiredGrade(requiredGrade)
 {
 #ifdef DEBUG
     std::cout << GREEN << "Form parameterized construcotr called" << RESET << std::endl;
@@ -18,7 +18,7 @@ Form::Form(const std::string& name, bool isSigned, int requiredGrade) : _name(na
     validateRequiredGrade();
 }
 
-Form::Form(const Form& other) : _name(other.getName()), _isSigned(getIsSigned()), _requiredGrade(other.getRequiredGrade())
+Form::Form(const Form& other) : _name(other.getName()), _isSigned(false), _requiredGrade(other.getRequiredGrade())
 {
 #ifdef DEBUG
     std::cout << GREEN << "Form copy constructor called" << RESET << std::endl;

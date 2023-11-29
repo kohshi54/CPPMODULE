@@ -8,7 +8,7 @@ class Bureaucrat;
 class Form
 {
     public:
-        Form(const std::string& name, bool isSigned, int requiredGrade);
+        Form(const std::string& name, int requiredGrade);
         Form(const Form& other);
         ~Form();
 
