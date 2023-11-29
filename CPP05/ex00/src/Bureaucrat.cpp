@@ -24,6 +24,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other.getName()), _grade
 #endif
 }
 
+/*
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
 {
     if (this != &rhs)
@@ -36,6 +37,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
     }
     return *this;
 }
+*/
 
 Bureaucrat::~Bureaucrat()
 {

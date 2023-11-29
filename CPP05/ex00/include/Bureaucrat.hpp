@@ -9,7 +9,6 @@ class Bureaucrat
     public:
         Bureaucrat(const Bureaucrat& other);
         Bureaucrat(const std::string& name, int grade);
-        Bureaucrat& operator=(const Bureaucrat& rhs);
         ~Bureaucrat();
 
         const std::string& getName() const;
@@ -32,8 +31,9 @@ class Bureaucrat
   
     private:
 		Bureaucrat();
+		Bureaucrat& operator=(const Bureaucrat& rhs);
 
-        std::string _name;
+        const std::string _name;
         int _grade; // grade must be in range of 1(highest) to 150(lowest).
 };
 
