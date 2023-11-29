@@ -1,11 +1,13 @@
 #include "Bureaucrat.hpp"
 
+/*
 Bureaucrat::Bureaucrat() : _name(""), _grade(70)
 {
 #ifdef DEBUG
     std::cout << GREEN << "Bureaucrat defualt constructor called" << RESET << std::endl;
 #endif
 }
+*/
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade)
 {
