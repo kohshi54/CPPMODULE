@@ -1,11 +1,13 @@
 #include "Bureaucrat.hpp"
 
+/*
 Bureaucrat::Bureaucrat() : _name(""), _grade(70)
 {
 #ifdef DEBUG
     std::cout << GREEN << "Bureaucrat defualt constructor called" << RESET << std::endl;
 #endif
 }
+*/
 
 Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade(grade)
 {
@@ -29,7 +31,7 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat& rhs)
 #ifdef DEBUG
     std::cout << YELLOW << "Bureaucrat copy assignment operator called" << RESET << std::endl;
 #endif
-        this->_name = rhs.getName();
+        // this->_name = rhs.getName(); // name is const
         this->_grade = rhs.getGrade();
     }
     return *this;
