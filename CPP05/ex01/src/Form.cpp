@@ -1,5 +1,6 @@
 #include "Form.hpp"
 
+/*
 Form::Form() : _name(""), _isSigned(0), _requiredGrade(1)
 {
 #ifdef DEBUG
@@ -7,6 +8,7 @@ Form::Form() : _name(""), _isSigned(0), _requiredGrade(1)
 #endif
     validateRequiredGrade();
 }
+*/
 
 Form::Form(const std::string& name, bool isSigned, int requiredGrade) : _name(name), _isSigned(isSigned), _requiredGrade(requiredGrade)
 {
