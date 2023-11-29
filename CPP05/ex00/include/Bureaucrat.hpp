@@ -9,10 +9,12 @@ class Bureaucrat
     public:
         Bureaucrat(const Bureaucrat& other);
         Bureaucrat(const std::string& name, int grade);
+		Bureaucrat& operator=(const Bureaucrat& rhs);
         ~Bureaucrat();
 
         const std::string& getName() const;
         int getGrade() const;
+
         void incrementGrade();
         void decrementGrade();
         void validateGrade();
@@ -20,18 +22,17 @@ class Bureaucrat
         class GradeTooHighException : public std::exception
         {
             public:
-                const char *what() const throw();
+                virtual const char *what() const throw();
         };
 
         class GradeTooLowException : public std::exception
         {
             public:
-                const char *what() const throw();
+                virtual const char *what() const throw();
         };
   
     private:
 		Bureaucrat();
-		Bureaucrat& operator=(const Bureaucrat& rhs);
 
         const std::string _name;
         int _grade; // grade must be in range of 1(highest) to 150(lowest).
