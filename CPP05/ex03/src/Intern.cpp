@@ -7,6 +7,7 @@ Intern::Intern()
 #endif
 }
 
+/* Intern does not contain parameter, so do not need these.
 Intern::Intern(const Intern& other)
 {
 #ifdef DEBUG
@@ -23,6 +24,7 @@ Intern& Intern::operator=(const Intern& rhs)
     (void)rhs;
     return *this;
 }
+*/
 
 Intern::~Intern()
 {

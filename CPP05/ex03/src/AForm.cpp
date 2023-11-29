@@ -19,7 +19,7 @@ AForm::AForm(const std::string& name, int requiredGrade) : _name(name), _isSigne
     validateRequiredGrade();
 }
 
-AForm::AForm(const AForm& other) : _name(other.getName()), _isSigned(getIsSigned()), _requiredGrade(other.getRequiredGrade())
+AForm::AForm(const AForm& other) : _name(other.getName()), _isSigned(false), _requiredGrade(other.getRequiredGrade())
 {
 #ifdef DEBUG
     std::cout << GREEN << "AForm copy constructor called" << RESET << std::endl;
