@@ -17,6 +17,44 @@ bool ScalarConverter::isInt(const std::string& literal)
     return true;
 }
 
+bool ScalarConverter::isFloat(const std::string& literal)
+{
+    bool hasDecimalPoint = false;
+    bool hasExponent = false;
+    bool hasFloatSuffix = false;
+
+    for (size_t i = 0; i < literal.length(); ++i)
+    {
+        if (literal[i] == '.' && !hasDecimalPoint)
+        {
+            hasDecimalPoint = true;
+        }
+        else if ((literal[i] == 'e' || literal[i] == 'E') && !hasExponent)
+        {
+            hasExponent = true;
+            if (i + 1 < literal.length() && (literal[i + 1] == '+' || literal[i + 1] == '-'))
+            {
+                ++i;
+            }
+        }
+        else if ((literal[i] == 'f' || literal[i] == 'F') && i == literal.length() - 1)
+        {
+            hasFloatSuffix = true;
+        }
+        else if (!std::isdigit(literal[i]) && literal[i] != '+' && literal[i] != '-')
+        {
+            return false;
+        }
+    }
+    return hasDecimalPoint || hasExponent || hasFloatSuffix;
+}
+
+bool ScalarConverter::isDouble(const std::string& literal)
+{
+    (void)literal;
+    return true;
+}
+
 void ScalarConverter::convert(const std::string& literal)
 {
     std::istringstream iss(literal);
@@ -30,8 +68,29 @@ void ScalarConverter::convert(const std::string& literal)
     }
     if (isInt(literal))
     {
+        /* delete this later */
+        std::cout << "stoi(): " << std::stod(literal) << std::endl;
+
         int digit;
         iss >> digit;
         std::cout << digit << std::endl;
+    }
+    if (isFloat(literal))
+    {
+        /* delete this later */
+        std::cout << "stof(): " << std::stof(literal) << "f" << std::endl;
+
+        float fdigit;
+        iss >> fdigit;
+        std::cout << fdigit << std::endl;
+    }
+    if (isDouble(literal))
+    {
+        /* delete this later */
+        std::cout << "stod(): " << std::stod(literal) << std::endl;
+
+        double ddigit;
+        iss >> ddigit;
+        std::cout << ddigit << std::endl;
     }
 }
