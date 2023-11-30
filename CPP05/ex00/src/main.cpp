@@ -48,10 +48,10 @@ int main(void)
     return 0;
 }
 
-/*
-__attribute__((destructor))
-static void end()
-{
-	system("leaks -q Bureaucrat");
-}
-*/
+#ifdef DEBUG
+	__attribute__((destructor))
+	static void end()
+	{
+		system("leaks -q Bureaucrat");
+	}
+#endif
