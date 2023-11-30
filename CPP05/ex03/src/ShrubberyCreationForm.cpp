@@ -80,7 +80,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
          << "   \\====/ \n"
          << "    \\__/ \n";
 
-    file.close();
+	file.close();
 
-    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+	std::cout << "Ascii tree written to " << filename << std::endl;
 }

@@ -57,5 +57,6 @@ AForm* Intern::makeForm(const std::string& name, const std::string& target)
         case 2:
             return new PresidentialPardonForm(target);
     }
+	std::cerr << "Specified form does not exist" << std::endl;
     return NULL;
 }

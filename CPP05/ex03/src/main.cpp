@@ -6,54 +6,67 @@
 
 int main()
 {
-   {
-      Intern someRandomIntern;
-      AForm* rrf;
-      rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-      (void)rrf;
-   }
-   std::cout << "============================" << std::endl;
-   {
-      Intern someRandomIntern;
-      Bureaucrat bureaucrat("Alice", 5);
-      AForm* form;
+	Intern someRandomIntern;
+	Bureaucrat bureaucrat("Alice", 5);
+	AForm* form;
 
-      // robotomy request form
-      form = someRandomIntern.makeForm("robotomy request", "Bender");
-      if (form)
-      {
-         std::cout << *form << std::endl;
-         bureaucrat.signForm(*form);
-         bureaucrat.executeForm(*form);
-         delete form;
-      }
-
-      // shrubbery creation form
-      form = someRandomIntern.makeForm("shrubbery creation", "Home");
-      if (form)
-      {
-         std::cout << *form << std::endl;
-         bureaucrat.signForm(*form);
-         bureaucrat.executeForm(*form);
-         delete form;
-      }
-
-      // presidential pardon form
-      form = someRandomIntern.makeForm("presidential pardon", "Bob");
-      if (form)
-      {
-         std::cout << *form << std::endl;
-         bureaucrat.signForm(*form);
-         bureaucrat.executeForm(*form);
-         delete form;
-      }
-
-      // unknow form so fail
-      form = someRandomIntern.makeForm("unknown form", "Unknown");
-      if (!form)
-      {
-         std::cout << "Failed to create form: unknown form" << std::endl;
-      }
-   }
-   return 0;
+	{
+		// shrubbery creation form
+		try
+		{
+			form = someRandomIntern.makeForm("shrubbery creation", "Home");
+			std::cout << *form << std::endl;
+			bureaucrat.signForm(*form);
+			bureaucrat.executeForm(*form);
+			delete form;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << "====================" << std::endl;
+	{
+		// robotomy request form
+		try
+		{
+			form = someRandomIntern.makeForm("robotomy request", "Bender");
+			std::cout << *form << std::endl;
+			bureaucrat.signForm(*form);
+			bureaucrat.executeForm(*form);
+			delete form;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << "====================" << std::endl;
+	{
+		try
+		{
+			form = someRandomIntern.makeForm("presidential pardon", "Bob");
+			std::cout << *form << std::endl;
+			bureaucrat.signForm(*form);
+			bureaucrat.executeForm(*form);
+			delete form;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	std::cout << "====================" << std::endl;
+	{
+		// unknow form so fail
+		try
+		{
+			form = someRandomIntern.makeForm("unknown form", "Unknown");
+		}
+		catch (const std::exception &e)
+		{
+			std::cerr << e.what() << std::endl;
+		}
+	}
+	return 0;
 }
