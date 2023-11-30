@@ -82,5 +82,5 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 
     file.close();
 
-    std::cout << executor.getName() << " executed " << this->getName() << std::endl;
+	std::cout << "Ascii tree written to " << filename << std::endl;
 }
