@@ -50,7 +50,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
     if (this->getIsSigned() == false)
     {
         std::cerr << "Failed to execute: form not signed" << std::endl;
-        throw std::runtime_error("Form is not signed.");
+        throw std::runtime_error(std::string("Form is not signed."));
     }
     if (executor.getGrade() > this->_requiredGradeToExec)
     {
