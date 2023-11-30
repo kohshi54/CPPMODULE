@@ -56,7 +56,7 @@ AForm* Intern::makeForm(const std::string& name, const std::string& target)
     std::cout << BLUE << "Intern makeForm() called" << RESET << std::endl;
 #endif
     static const std::string forms[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-    for (int i = 0; i < 3; ++i)
+    for (size_t i = 0; i < forms->length(); ++i)
     {
         if (forms[i] == name)
         {
