@@ -17,6 +17,11 @@ class Intern
 	private:
 		Intern(const Intern& other);
         Intern& operator=(const Intern& rhs);
+
+		static AForm* (* const makeFormExecute[])(const std::string&);
+		static AForm* makeShrubberyCreationForm(const std::string& target);
+		static AForm* makeRobotomyRequestForm(const std::string& target);
+		static AForm* makePresidentialPardonForm(const std::string& target);
 };
 
 #endif

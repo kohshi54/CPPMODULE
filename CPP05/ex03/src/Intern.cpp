@@ -33,30 +33,37 @@ Intern::~Intern()
 #endif
 }
 
+AForm* Intern::makeShrubberyCreationForm(const std::string& target)
+{
+	return new ShrubberyCreationForm(target);
+}
+
+AForm* Intern::makeRobotomyRequestForm(const std::string& target)
+{
+	return new RobotomyRequestForm(target);
+}
+
+AForm* Intern::makePresidentialPardonForm(const std::string& target)
+{
+	return new PresidentialPardonForm(target);
+}
+
+AForm* (*const Intern::makeFormExecute[])(const std::string&) = {&makeShrubberyCreationForm, &makeRobotomyRequestForm, &makePresidentialPardonForm};
+
 AForm* Intern::makeForm(const std::string& name, const std::string& target)
 {
 #ifdef DEBUG
     std::cout << BLUE << "Intern makeForm() called" << RESET << std::endl;
 #endif
     static const std::string forms[] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-    int index = -1;
     for (int i = 0; i < 3; ++i)
     {
         if (forms[i] == name)
         {
             std::cout << "Intern creates " << name << std::endl;
-            index = i;
+			return (makeFormExecute[i])(target);
         }
     }
-    switch (index)
-    {
-        case 0:
-            return new ShrubberyCreationForm(target);
-        case 1:
-            return new RobotomyRequestForm(target);
-        case 2:
-            return new PresidentialPardonForm(target);
-    }
-	std::cerr << "Specified form does not exist" << std::endl;
+	throw std::runtime_error(std::string("Specified form does not exist"));
     return NULL;
 }
