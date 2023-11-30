@@ -9,7 +9,7 @@ int main(void)
         {
             Bureaucrat h = Bureaucrat("bob", 1);
             std::cout << h << std::endl;
-            Form f = Form("visa", 2);
+            Form f = Form("visa", 2, 2);
             std::cout << f << std::endl;
             h.signForm(f);
         }
@@ -25,7 +25,7 @@ int main(void)
         {
             Bureaucrat h = Bureaucrat("bob", 4);
             std::cout << h << std::endl;
-            Form f = Form("visa", 2);
+            Form f = Form("visa", 2, 2);
             std::cout << f << std::endl;
             h.signForm(f);
         }
@@ -41,7 +41,7 @@ int main(void)
         {
             Bureaucrat h = Bureaucrat("bob", 4);
             std::cout << h << std::endl;
-            Form f = Form("visa", 151);
+            Form f = Form("visa", 151, 151);
             std::cout << f << std::endl;
             h.signForm(f);
         }
@@ -57,7 +57,7 @@ int main(void)
         {
             Bureaucrat h = Bureaucrat("bob", 4);
             std::cout << h << std::endl;
-            Form f = Form("visa", 0);
+            Form f = Form("visa", 0, 0);
             std::cout << f << std::endl;
             h.signForm(f);
         }
