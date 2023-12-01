@@ -64,8 +64,42 @@ bool ScalarConverter::isFloat(const std::string& literal)
 
 bool ScalarConverter::isDouble(const std::string& literal)
 {
-	(void)literal;
-	return false;
+	bool hasSign = false;
+	bool hasDecimalPoint = false;
+	bool hasExponent = false;
+	bool hasFloatSuffix = false;
+
+	for (size_t i = 0; i < literal.length(); ++i)
+	{
+		if (literal[i] == '.' && !hasDecimalPoint)
+		{
+			hasDecimalPoint = true;
+			continue ;
+		}
+		if ((literal[i] == 'e' || literal[i] == 'E') && !hasExponent)
+		{
+			hasExponent = true;
+			if (i + 1 < literal.length() && (literal[i + 1] == '+' || literal[i + 1] == '-'))
+				++i;
+			continue ;
+		}
+		if ((literal[i] == 'f' || literal[i] == 'F') && i == literal.length() - 1)
+		{
+			hasFloatSuffix = true;
+			continue ;
+		}
+		if (std::isdigit(literal[i]))
+		{
+			continue ;
+		}
+		if ((literal[i] == '+' || literal[i] == '-') && !hasSign)
+		{
+			hasSign = true;
+			continue ;
+		}
+		return false;
+	}
+	return !hasFloatSuffix;
 }
 
 void ScalarConverter::convert(const std::string& literal)
@@ -102,12 +136,11 @@ void ScalarConverter::convert(const std::string& literal)
 	}
 	if (isDouble(literal))
 	{
-		/* delete this later */
-		std::cout << "stod(): " << std::stod(literal) << std::endl;
-
-		double ddigit;
-		iss >> ddigit;
-		std::cout << ddigit << std::endl;
+		std::cout << "isDouble!" << std::endl;
+		_double = std::stod(literal);
+		_char = static_cast<char>(_double);
+		_int = static_cast<int>(_double);
+		_float = static_cast<float>(_double);
 	}
 	if (std::isprint(static_cast<unsigned int>(_char)))
 		std::cout << _char << std::endl;
