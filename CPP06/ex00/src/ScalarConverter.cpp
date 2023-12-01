@@ -29,6 +29,8 @@ bool ScalarConverter::isFloat(const std::string& literal)
 	bool hasExponent = false;
 	bool hasFloatSuffix = false;
 
+	if (literal == "-inff" || literal == "+inff" || literal == "nanf")
+		return true;
 	for (size_t i = 0; i < literal.length(); ++i)
 	{
 		if (literal[i] == '.' && !hasDecimalPoint)
@@ -68,6 +70,8 @@ bool ScalarConverter::isDouble(const std::string& literal)
 	bool hasDecimalPoint = false;
 	bool hasExponent = false;
 
+	if (literal == "-inf" || literal == "+inf" || literal == "nan")
+		return true;
 	for (size_t i = 0; i < literal.length(); ++i)
 	{
 		if (literal[i] == '.' && !hasDecimalPoint)
