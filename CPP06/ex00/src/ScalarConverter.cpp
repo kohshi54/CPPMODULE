@@ -24,6 +24,7 @@ bool ScalarConverter::isInt(const std::string& literal)
 
 bool ScalarConverter::isFloat(const std::string& literal)
 {
+	bool hasSign = false;
 	bool hasDecimalPoint = false;
 	bool hasExponent = false;
 	bool hasFloatSuffix = false;
@@ -33,25 +34,32 @@ bool ScalarConverter::isFloat(const std::string& literal)
 		if (literal[i] == '.' && !hasDecimalPoint)
 		{
 			hasDecimalPoint = true;
+			continue ;
 		}
-		else if ((literal[i] == 'e' || literal[i] == 'E') && !hasExponent)
+		if ((literal[i] == 'e' || literal[i] == 'E') && !hasExponent)
 		{
 			hasExponent = true;
 			if (i + 1 < literal.length() && (literal[i + 1] == '+' || literal[i + 1] == '-'))
-			{
 				++i;
-			}
+			continue ;
 		}
-		else if ((literal[i] == 'f' || literal[i] == 'F') && i == literal.length() - 1)
+		if ((literal[i] == 'f' || literal[i] == 'F') && i == literal.length() - 1)
 		{
 			hasFloatSuffix = true;
+			continue ;
 		}
-		else if (!std::isdigit(literal[i]) && literal[i] != '+' && literal[i] != '-')
+		if (std::isdigit(literal[i]))
 		{
-			return false;
+			continue ;
 		}
+		if ((literal[i] == '+' || literal[i] == '-') && !hasSign)
+		{
+			hasSign = true;
+			continue ;
+		}
+		return false;
 	}
-	return hasDecimalPoint || hasExponent || hasFloatSuffix;
+	return hasFloatSuffix;
 }
 
 bool ScalarConverter::isDouble(const std::string& literal)
@@ -78,7 +86,7 @@ void ScalarConverter::convert(const std::string& literal)
 	}
 	if (isInt(literal))
 	{
-		std::cout << "isInt!" << std::endl;		
+		std::cout << "isInt!" << std::endl;
 		_int = std::stod(literal);
 		_char = static_cast<char>(_int);
 		_float = static_cast<float>(_int);
@@ -86,12 +94,11 @@ void ScalarConverter::convert(const std::string& literal)
 	}
 	if (isFloat(literal))
 	{
-		/* delete this later */
-		std::cout << "stof(): " << std::stof(literal) << "f" << std::endl;
-
-		float fdigit;
-		iss >> fdigit;
-		std::cout << fdigit << std::endl;
+		std::cout << "isFloat!" << std::endl;
+		_float = std::stof(literal);
+		_char = static_cast<char>(_float);
+		_int = static_cast<int>(_float);
+		_double = static_cast<double>(_float);
 	}
 	if (isDouble(literal))
 	{
