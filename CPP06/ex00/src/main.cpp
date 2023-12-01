@@ -4,15 +4,15 @@
 
 int main(int argc, char *argv[])
 {
-	char a;
-	int b;
-	float c;
-	double d;
+	// char a;
+	// int b;
+	// float c;
+	// double d;
 
-	std::cout << "Type of a: " << typeid(a).name() << std::endl;
-	std::cout << "Type of b: " << typeid(b).name() << std::endl;
-	std::cout << "Type of c: " << typeid(c).name() << std::endl;
-	std::cout << "Type of d: " << typeid(d).name() << std::endl;
+	// std::cout << "Type of a: " << typeid(a).name() << std::endl;
+	// std::cout << "Type of b: " << typeid(b).name() << std::endl;
+	// std::cout << "Type of c: " << typeid(c).name() << std::endl;
+	// std::cout << "Type of d: " << typeid(d).name() << std::endl;
 
 	if (argc != 2)
 	{
