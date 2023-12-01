@@ -2,7 +2,7 @@
 
 bool ScalarConverter::isChar(const std::string& literal)
 {
-	return std::isalpha(literal[0]) && literal.length() == 1 && std::isprint(static_cast<unsigned int>(literal[0]));
+	return literal.length() == 1 && std::isalpha(literal[0]);
 }
 
 bool ScalarConverter::isInt(const std::string& literal)
@@ -58,13 +58,20 @@ bool ScalarConverter::isDouble(const std::string& literal)
 void ScalarConverter::convert(const std::string& literal)
 {
 	std::istringstream iss(literal);
+	char _char = 0;
+	int _int = 0;
+	float _float = 0.0f;
+	double _double = 0.0;
 
 	if (isChar(literal))
 	{
-		std::cout << static_cast<char>(literal[0]) << std::endl;
-		// char c;
-		// iss >> c;
-		// std::cout << c << std::endl;
+		if (std::isprint(static_cast<unsigned int>(literal[0])))
+			_char = static_cast<char>(literal[0]);
+		else
+			std::cout << "Non displayable" << std::endl;
+		_int = static_cast<int>(literal[0]);
+		_float = static_cast<float>(literal[0]);
+		_double = static_cast<double>(literal[0]);
 	}
 	if (isInt(literal))
 	{
@@ -93,4 +100,8 @@ void ScalarConverter::convert(const std::string& literal)
 		iss >> ddigit;
 		std::cout << ddigit << std::endl;
 	}
+	std::cout << _char << std::endl;
+	std::cout << _int << std::endl;
+	std::cout << _float << std::endl;
+	std::cout << _double << std::endl;
 }

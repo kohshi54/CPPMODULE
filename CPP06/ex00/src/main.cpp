@@ -4,7 +4,6 @@
 
 int main(int argc, char *argv[])
 {
-	(void)argc;
 	char a;
 	int b;
 	float c;
