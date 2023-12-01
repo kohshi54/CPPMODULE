@@ -69,9 +69,9 @@ void ScalarConverter::convert(const std::string& literal)
 			_char = static_cast<char>(literal[0]);
 		else
 			std::cout << "Non displayable" << std::endl;
-		_int = static_cast<int>(literal[0]);
-		_float = static_cast<float>(literal[0]);
-		_double = static_cast<double>(literal[0]);
+		_int = static_cast<int>(_char);
+		_float = static_cast<float>(_char);
+		_double = static_cast<double>(_char);
 	}
 	if (isInt(literal))
 	{
