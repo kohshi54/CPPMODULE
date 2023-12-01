@@ -102,7 +102,6 @@ bool ScalarConverter::isDouble(const std::string& literal)
 
 void ScalarConverter::convert(const std::string& literal)
 {
-	std::istringstream iss(literal);
 	char _char = 0;
 	int _int = 0;
 	float _float = 0.0f;
@@ -110,7 +109,9 @@ void ScalarConverter::convert(const std::string& literal)
 
 	if (isChar(literal))
 	{
+#ifdef DEBUG
 		std::cout << "isChar!" << std::endl;
+#endif
 		_char = static_cast<char>(literal[0]);
 		_int = static_cast<int>(_char);
 		_float = static_cast<float>(_char);
@@ -118,7 +119,9 @@ void ScalarConverter::convert(const std::string& literal)
 	}
 	else if (isInt(literal))
 	{
+#ifdef DEBUG
 		std::cout << "isInt!" << std::endl;
+#endif
 		_int = std::stod(literal);
 		_char = static_cast<char>(_int);
 		_float = static_cast<float>(_int);
@@ -126,7 +129,9 @@ void ScalarConverter::convert(const std::string& literal)
 	}
 	else if (isFloat(literal))
 	{
+#ifdef DEBUG
 		std::cout << "isFloat!" << std::endl;
+#endif
 		_float = std::stof(literal);
 		_char = static_cast<char>(_float);
 		_int = static_cast<int>(_float);
@@ -134,7 +139,9 @@ void ScalarConverter::convert(const std::string& literal)
 	}
 	else if (isDouble(literal))
 	{
+#ifdef DEBUG
 		std::cout << "isDouble!" << std::endl;
+#endif
 		_double = std::stod(literal);
 		_char = static_cast<char>(_double);
 		_int = static_cast<int>(_double);

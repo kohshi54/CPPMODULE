@@ -4,16 +4,6 @@
 
 int main(int argc, char *argv[])
 {
-	// char a;
-	// int b;
-	// float c;
-	// double d;
-
-	// std::cout << "Type of a: " << typeid(a).name() << std::endl;
-	// std::cout << "Type of b: " << typeid(b).name() << std::endl;
-	// std::cout << "Type of c: " << typeid(c).name() << std::endl;
-	// std::cout << "Type of d: " << typeid(d).name() << std::endl;
-
 	if (argc != 2)
 	{
 		std::cout << "There must be one argument" << std::endl;
@@ -22,3 +12,11 @@ int main(int argc, char *argv[])
 	ScalarConverter::convert(argv[1]);
 	return (0);
 }
+
+#ifdef DEBUG
+__attribute__((destructor))
+static void end()
+{
+	system("leaks -q convert");
+}
+#endif
