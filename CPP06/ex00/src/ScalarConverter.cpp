@@ -148,10 +148,10 @@ void ScalarConverter::convert(const std::string& literal)
 		_float = static_cast<float>(_double);
 	}
 	if (std::isprint(static_cast<unsigned int>(_char)))
-		std::cout << _char << std::endl;
+		std::cout << "char: " << _char << std::endl;
 	else
-		std::cout << "Non displayable" << std::endl;
-	std::cout << _int << std::endl;
-	std::cout << _float << std::endl;
-	std::cout << _double << std::endl;
+		std::cout << "char: Non displayable" << std::endl;
+	std::cout << "int: " << _int << std::endl;
+	std::cout << "float: " << _float << "f" << std::endl;
+	std::cout << "double: " << _double << std::endl;
 }
