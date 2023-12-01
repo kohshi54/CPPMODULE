@@ -98,16 +98,15 @@ void ScalarConverter::convert(const std::string& literal)
 
 	if (isChar(literal))
 	{
-		if (std::isprint(static_cast<unsigned int>(literal[0])))
-			_char = static_cast<char>(literal[0]);
-		else
-			std::cout << "Non displayable" << std::endl;
+		std::cout << "isChar!" << std::endl;
+		_char = static_cast<char>(literal[0]);
 		_int = static_cast<int>(_char);
 		_float = static_cast<float>(_char);
 		_double = static_cast<double>(_char);
 	}
 	if (isInt(literal))
 	{
+		std::cout << "isInt!" << std::endl;		
 		_int = std::stod(literal);
 		_char = static_cast<char>(_int);
 		_float = static_cast<float>(_int);
@@ -131,7 +130,10 @@ void ScalarConverter::convert(const std::string& literal)
 		iss >> ddigit;
 		std::cout << ddigit << std::endl;
 	}
-	std::cout << _char << std::endl;
+	if (std::isprint(static_cast<unsigned int>(_char)))
+		std::cout << _char << std::endl;
+	else
+		std::cout << "Non displayable" << std::endl;
 	std::cout << _int << std::endl;
 	std::cout << _float << std::endl;
 	std::cout << _double << std::endl;
