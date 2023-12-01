@@ -67,7 +67,6 @@ bool ScalarConverter::isDouble(const std::string& literal)
 	bool hasSign = false;
 	bool hasDecimalPoint = false;
 	bool hasExponent = false;
-	bool hasFloatSuffix = false;
 
 	for (size_t i = 0; i < literal.length(); ++i)
 	{
@@ -83,11 +82,6 @@ bool ScalarConverter::isDouble(const std::string& literal)
 				++i;
 			continue ;
 		}
-		if ((literal[i] == 'f' || literal[i] == 'F') && i == literal.length() - 1)
-		{
-			hasFloatSuffix = true;
-			continue ;
-		}
 		if (std::isdigit(literal[i]))
 		{
 			continue ;
@@ -99,7 +93,7 @@ bool ScalarConverter::isDouble(const std::string& literal)
 		}
 		return false;
 	}
-	return !hasFloatSuffix;
+	return true;
 }
 
 void ScalarConverter::convert(const std::string& literal)
@@ -118,7 +112,7 @@ void ScalarConverter::convert(const std::string& literal)
 		_float = static_cast<float>(_char);
 		_double = static_cast<double>(_char);
 	}
-	if (isInt(literal))
+	else if (isInt(literal))
 	{
 		std::cout << "isInt!" << std::endl;
 		_int = std::stod(literal);
@@ -126,7 +120,7 @@ void ScalarConverter::convert(const std::string& literal)
 		_float = static_cast<float>(_int);
 		_double = static_cast<double>(_int);
 	}
-	if (isFloat(literal))
+	else if (isFloat(literal))
 	{
 		std::cout << "isFloat!" << std::endl;
 		_float = std::stof(literal);
@@ -134,7 +128,7 @@ void ScalarConverter::convert(const std::string& literal)
 		_int = static_cast<int>(_float);
 		_double = static_cast<double>(_float);
 	}
-	if (isDouble(literal))
+	else if (isDouble(literal))
 	{
 		std::cout << "isDouble!" << std::endl;
 		_double = std::stod(literal);
