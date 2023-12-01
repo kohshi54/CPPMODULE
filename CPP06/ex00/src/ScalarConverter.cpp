@@ -5,34 +5,6 @@ bool ScalarConverter::isChar(const std::string& literal)
 	return literal.length() == 1 && std::isalpha(literal[0]);
 }
 
-/*
-	char	neg_flg;
-	long	num;
-
-	neg_flg = 1;
-	num = 0;
-	while (ft_isspace(*str))
-		str++;
-	if (*str == '-' || *str == '+')
-		if (*str++ == '-')
-			neg_flg = -1;
-	while (ft_isdigit(*str))
-	{
-		if (neg_flg == -1)
-		{
-			if (overflow_min_checker(num, str))
-				return ((int)LONG_MIN);
-		}
-		else
-		{
-			if (overflow_max_checker(num, str))
-				return ((int)LONG_MAX);
-		}
-		num = (num * 10) + (*str++ - '0');
-	}
-	return ((int)(num * neg_flg));
-*/
-
 bool ScalarConverter::isInt(const std::string& literal)
 {
 	bool hasSign = false;
