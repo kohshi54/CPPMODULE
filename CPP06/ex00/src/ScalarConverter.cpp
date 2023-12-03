@@ -14,6 +14,8 @@ bool ScalarConverter::isInt(const std::string& literal)
 		if ((literal[i] == '+' || literal[i] == '-') && !hasSign)
 		{
 			hasSign = true;
+			if (literal.length() == 1)
+				return false;
 			continue ;
 		}
 		if (std::isdigit(literal[i]) == false)
@@ -112,40 +114,68 @@ void ScalarConverter::convert(const std::string& literal)
 #ifdef DEBUG
 		std::cout << "isChar!" << std::endl;
 #endif
-		_char = static_cast<char>(literal[0]);
-		_int = static_cast<int>(_char);
-		_float = static_cast<float>(_char);
-		_double = static_cast<double>(_char);
+		try
+		{
+			_char = static_cast<char>(literal[0]);
+			_int = static_cast<int>(_char);
+			_float = static_cast<float>(_char);
+			_double = static_cast<double>(_char);
+		}
+		catch (const std::exception& e)
+		{
+			std::cerr << "isChar: " << e.what() << std::endl;
+		}
 	}
 	else if (isInt(literal))
 	{
 #ifdef DEBUG
 		std::cout << "isInt!" << std::endl;
 #endif
-		_int = std::stod(literal);
-		_char = static_cast<char>(_int);
-		_float = static_cast<float>(_int);
-		_double = static_cast<double>(_int);
+		try
+		{
+			_int = std::stod(literal);
+			_char = static_cast<char>(_int);
+			_float = static_cast<float>(_int);
+			_double = static_cast<double>(_int);
+		}
+		catch(const std::exception& e)
+		{
+			std::cout << "isInt: " << e.what() << std::endl;
+		}		
 	}
 	else if (isFloat(literal))
 	{
 #ifdef DEBUG
 		std::cout << "isFloat!" << std::endl;
 #endif
-		_float = std::stof(literal);
-		_char = static_cast<char>(_float);
-		_int = static_cast<int>(_float);
-		_double = static_cast<double>(_float);
+		try
+		{
+			_float = std::stof(literal);
+			_char = static_cast<char>(_float);
+			_int = static_cast<int>(_float);
+			_double = static_cast<double>(_float);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << "isFloat: " << e.what() << std::endl;
+		}
 	}
 	else if (isDouble(literal))
 	{
 #ifdef DEBUG
 		std::cout << "isDouble!" << std::endl;
 #endif
-		_double = std::stod(literal);
-		_char = static_cast<char>(_double);
-		_int = static_cast<int>(_double);
-		_float = static_cast<float>(_double);
+		try
+		{
+			_double = std::stod(literal);
+			_char = static_cast<char>(_double);
+			_int = static_cast<int>(_double);
+			_float = static_cast<float>(_double);
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << "isDouble: " << e.what() << std::endl;
+		}
 	}
 	if (std::isprint(static_cast<unsigned int>(_char)))
 		std::cout << "char: " << _char << std::endl;
