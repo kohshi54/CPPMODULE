@@ -95,6 +95,8 @@ bool ScalarConverter::isDouble(const std::string& literal)
 		if ((literal[i] == '+' || literal[i] == '-') && !hasSign)
 		{
 			hasSign = true;
+			if (literal.length() == 1)
+				return false;
 			continue ;
 		}
 		return false;
