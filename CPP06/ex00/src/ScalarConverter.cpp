@@ -59,6 +59,8 @@ bool ScalarConverter::isFloat(const std::string& literal)
 		if ((literal[i] == '+' || literal[i] == '-') && !hasSign)
 		{
 			hasSign = true;
+			if (literal.length() == 1)
+				return false;
 			continue ;
 		}
 		return false;
@@ -135,7 +137,7 @@ void ScalarConverter::convert(const std::string& literal)
 #endif
 		try
 		{
-			_int = std::stod(literal);
+			_int = std::stoi(literal);
 			_char = static_cast<char>(_int);
 			_float = static_cast<float>(_int);
 			_double = static_cast<double>(_int);
