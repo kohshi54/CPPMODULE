@@ -187,11 +187,16 @@ void ScalarConverter::convert(const std::string& literal)
 			std::cerr << "isDouble: " << e.what() << std::endl;
 		}
 	}
-	if (std::isprint(static_cast<unsigned int>(_char)))
+	if (literal == "-inf" || literal == "+inf" || literal == "nan" || literal == "-inff" || literal == "+inff" || literal == "nanf")
+		std::cout << "char: impossible" << std::endl;
+	else if (std::isprint(static_cast<unsigned int>(_char)))
 		std::cout << "char: " << _char << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
-	std::cout << "int: " << _int << std::endl;
+	if (literal == "-inf" || literal == "+inf" || literal == "nan" || literal == "-inff" || literal == "+inff" || literal == "nanf")
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << _int << std::endl;
 	if (_float == std::floor(_float))
 		std::cout << std::fixed << std::setprecision(1) << "float: " << _float << "f" << std::endl;
 	else
