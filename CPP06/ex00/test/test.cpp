@@ -16,6 +16,20 @@ TEST(ConverterTest, IsChar)
 	// EXPECT_TRUE(ScalarConverter::isChar("\t")); // If handle escape sequence, it can be handle correctly.
 }
 
+TEST(ConverterTest, IsInt)
+{
+	EXPECT_TRUE(ScalarConverter::isInt("1"));
+	EXPECT_TRUE(ScalarConverter::isInt("10"));
+	EXPECT_TRUE(ScalarConverter::isInt("+1"));
+	EXPECT_TRUE(ScalarConverter::isInt("+12"));
+	EXPECT_TRUE(ScalarConverter::isInt("-15"));
+
+	EXPECT_FALSE(ScalarConverter::isInt("+"));
+	EXPECT_FALSE(ScalarConverter::isInt("-"));
+	EXPECT_FALSE(ScalarConverter::isInt("a"));
+	EXPECT_FALSE(ScalarConverter::isInt("b"));
+}
+
 int main(int argc, char *argv[])
 {
 	::testing::InitGoogleTest(&argc, argv);
