@@ -54,6 +54,7 @@ TEST(ConverterTest, IsFloat)
 	EXPECT_TRUE(ScalarConverter::isFloat("1.23e4f"));
 	EXPECT_TRUE(ScalarConverter::isFloat("1.23e+4f"));
 	EXPECT_TRUE(ScalarConverter::isFloat("89.3e-5f"));
+	EXPECT_TRUE(ScalarConverter::isFloat("3.40282e+38f")); // FLT_MAX
 
 	EXPECT_FALSE(ScalarConverter::isFloat("1"));
 	EXPECT_FALSE(ScalarConverter::isFloat("10"));
