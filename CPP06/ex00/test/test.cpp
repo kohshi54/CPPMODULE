@@ -51,12 +51,17 @@ TEST(ConverterTest, IsFloat)
 	EXPECT_TRUE(ScalarConverter::isFloat("-inff"));
 	EXPECT_TRUE(ScalarConverter::isFloat("+inff"));
 	EXPECT_TRUE(ScalarConverter::isFloat("nanf"));
+	EXPECT_TRUE(ScalarConverter::isFloat("1.23e4f"));
+	EXPECT_TRUE(ScalarConverter::isFloat("1.23e+4f"));
+	EXPECT_TRUE(ScalarConverter::isFloat("89.3e-5f"));
 
 	EXPECT_FALSE(ScalarConverter::isFloat("1"));
 	EXPECT_FALSE(ScalarConverter::isFloat("10"));
 	EXPECT_FALSE(ScalarConverter::isFloat("aa"));
 	EXPECT_FALSE(ScalarConverter::isFloat("AA"));
 	EXPECT_FALSE(ScalarConverter::isFloat("nan"));
+	EXPECT_FALSE(ScalarConverter::isFloat("1.23ef"));
+	EXPECT_FALSE(ScalarConverter::isFloat("1.23+f"));
 }
 
 TEST(ConverterTest, IsDouble)
@@ -66,13 +71,16 @@ TEST(ConverterTest, IsDouble)
 	EXPECT_TRUE(ScalarConverter::isDouble("0.0"));
 	EXPECT_TRUE(ScalarConverter::isDouble("-inf"));
 	EXPECT_TRUE(ScalarConverter::isDouble("+inf"));
-	EXPECT_TRUE(ScalarConverter::isDouble("nan"));
+	EXPECT_TRUE(ScalarConverter::isDouble("1.23e4"));
+	EXPECT_TRUE(ScalarConverter::isDouble("1.23e+4"));
+	EXPECT_TRUE(ScalarConverter::isDouble("1.23e-4"));
 
 	EXPECT_FALSE(ScalarConverter::isDouble("1"));
 	EXPECT_FALSE(ScalarConverter::isDouble("10"));
 	EXPECT_FALSE(ScalarConverter::isDouble("aa"));
 	EXPECT_FALSE(ScalarConverter::isDouble("AA"));
-	EXPECT_FALSE(ScalarConverter::isDouble("nanf"));
+	EXPECT_FALSE(ScalarConverter::isDouble("1.23e"));
+	EXPECT_FALSE(ScalarConverter::isDouble("1.23+"));
 }
 
 int main(int argc, char *argv[])

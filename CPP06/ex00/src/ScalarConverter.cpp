@@ -44,8 +44,15 @@ bool ScalarConverter::isFloat(const std::string& literal)
 		{
 			hasExponent = true;
 			if (i + 1 < literal.length() && (literal[i + 1] == '+' || literal[i + 1] == '-'))
+			{
 				++i;
-			continue ;
+			}
+			if (i + 1 < literal.length() && std::isdigit(literal[i + 1]))
+			{
+				++i;
+				continue ;
+			}
+			return false;
 		}
 		if ((literal[i] == 'f' || literal[i] == 'F') && i == literal.length() - 1)
 		{
@@ -60,6 +67,8 @@ bool ScalarConverter::isFloat(const std::string& literal)
 		{
 			hasSign = true;
 			if (literal.length() == 1)
+				return false;
+			if (i + 2 >= literal.length())
 				return false;
 			continue ;
 		}
@@ -87,8 +96,15 @@ bool ScalarConverter::isDouble(const std::string& literal)
 		{
 			hasExponent = true;
 			if (i + 1 < literal.length() && (literal[i + 1] == '+' || literal[i + 1] == '-'))
+			{
 				++i;
-			continue ;
+			}
+			if (i + 1 < literal.length() && std::isdigit(literal[i + 1]))
+			{
+				++i;
+				continue ;
+			}
+			return false;
 		}
 		if (std::isdigit(literal[i]))
 		{
@@ -98,6 +114,8 @@ bool ScalarConverter::isDouble(const std::string& literal)
 		{
 			hasSign = true;
 			if (literal.length() == 1)
+				return false;
+			if (i + 1 >= literal.length())
 				return false;
 			continue ;
 		}
