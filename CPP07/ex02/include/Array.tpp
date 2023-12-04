@@ -4,7 +4,7 @@ template <typename T>
 Array<T>::Array() : _array(NULL), _size(0)
 {
 #ifdef DEBUG
-	std::cout << "Array constructor called" << std::endl;
+	std::cout << GREEN << "Array constructor called" << RESET << std::endl;
 #endif
 }
 
@@ -12,14 +12,14 @@ template <typename T>
 Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n)
 {
 #ifdef DEBUG
-	std::cout << "Array copy constructor called" << std::endl;
+	std::cout << GREEN << "Array copy constructor called" << RESET << std::endl;
 #endif
 }
 template <typename T>
 Array<T>::Array(const Array& other) : _array(new T[other._size]), _size(other._size)
 {
 #ifdef DEBUG
-	std::cout << "Array parameterized constructor called" << std::endl;
+	std::cout << GREEN << "Array parameterized constructor called" << RESET << std::endl;
 #endif
 	for (unsigned int i = 0; i < other._size; ++i)
 	{
@@ -33,7 +33,7 @@ Array<T>& Array<T>::operator=(const Array& rhs)
 	if (this != &rhs)
 	{
 #ifdef DEBUG
-	std::cout << "Array copy assignment operator called" << std::endl;
+	std::cout << YELLOW << "Array copy assignment operator called" << RESET << std::endl;
 #endif
 		T* newArray = new T[rhs._size];
 		for (unsigned int i = 0; i < rhs._size; ++i)
@@ -51,7 +51,7 @@ template <typename T>
 Array<T>::~Array()
 {
 #ifdef DEBUG
-	std::cout << "Array destructor called" << std::endl;
+	std::cout << RED << "Array destructor called" << RESET << std::endl;
 #endif	
 	delete[] this->_array;
 }

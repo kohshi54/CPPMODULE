@@ -2,6 +2,7 @@
 #define ARRAY_HPP
 
 #include <iostream>
+#include "Color.hpp"
 
 template <typename T>
 class Array
