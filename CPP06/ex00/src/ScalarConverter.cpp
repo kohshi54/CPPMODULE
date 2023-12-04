@@ -1,5 +1,4 @@
 #include "ScalarConverter.hpp"
-#include <iomanip>
 
 bool ScalarConverter::isChar(const std::string& literal)
 {
