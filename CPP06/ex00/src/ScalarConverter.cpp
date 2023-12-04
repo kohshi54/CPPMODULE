@@ -189,7 +189,12 @@ void ScalarConverter::convert(const std::string& literal)
 		}
 		catch(const std::exception& e)
 		{
-			std::cerr << "isDouble: " << e.what() << std::endl;
+			// std::cerr << "isDouble: " << e.what() << std::endl;
+			std::cout << "char: impossible" << std::endl;
+			std::cout << "int: impossible" << std::endl;
+			std::cout << "float: impossible" << std::endl;
+			std::cout << "double: impossible" << std::endl;
+			return ;
 		}
 	}
 	if (literal == "-inf" || literal == "+inf" || literal == "nan" || literal == "-inff" || literal == "+inff" || literal == "nanf")
