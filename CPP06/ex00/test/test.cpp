@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "ScalarConverter.hpp"
+#include <limits>
 
 TEST(ConverterTest, IsChar)
 {
@@ -23,11 +24,23 @@ TEST(ConverterTest, IsInt)
 	EXPECT_TRUE(ScalarConverter::isInt("+1"));
 	EXPECT_TRUE(ScalarConverter::isInt("+12"));
 	EXPECT_TRUE(ScalarConverter::isInt("-15"));
+	EXPECT_TRUE(ScalarConverter::isInt("0"));
+	EXPECT_TRUE(ScalarConverter::isInt("-0"));
+	EXPECT_TRUE(ScalarConverter::isInt("+0"));
+	EXPECT_TRUE(ScalarConverter::isInt("+0"));
+	EXPECT_TRUE(ScalarConverter::isInt("2147483647"));
+	EXPECT_TRUE(ScalarConverter::isInt("-2147483648"));
+
+	// EXPECT_TRUE(ScalarConverter::isInt(std::to_string(std::numeric_limits<int>::max())));
+	// EXPECT_TRUE(ScalarConverter::isInt(std::to_string(std::numeric_limits<int>::min())));
 
 	EXPECT_FALSE(ScalarConverter::isInt("+"));
 	EXPECT_FALSE(ScalarConverter::isInt("-"));
 	EXPECT_FALSE(ScalarConverter::isInt("a"));
 	EXPECT_FALSE(ScalarConverter::isInt("b"));
+	EXPECT_FALSE(ScalarConverter::isInt("2147483648"));
+	EXPECT_FALSE(ScalarConverter::isInt("-2147483649"));
+
 }
 
 int main(int argc, char *argv[])
