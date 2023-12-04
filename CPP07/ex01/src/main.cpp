@@ -1,0 +1,21 @@
+#include "iter.hpp"
+
+void square(int i)
+{
+	std::cout << i << std::endl;
+}
+
+int main(void)
+{
+	int array[] = {1, 2, 3, 4};
+	iter(array, 4, &square);
+	return 0;
+}
+
+#ifdef DEBUG
+__attribute__((destructor))
+static void end()
+{
+	system("leaks -q convert");
+}
+#endif
