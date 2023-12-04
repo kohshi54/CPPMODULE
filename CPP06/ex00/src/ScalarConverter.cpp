@@ -169,11 +169,8 @@ void ScalarConverter::convert(const std::string& literal)
 		}
 		catch(const std::exception& e)
 		{
-			// std::cout << "isInt: " << e.what() << std::endl;
-			charImpossible = true;
-			intImpossible = true;
-			floatImpossible = true;
-			doubleImpossible = true;
+			std::cerr << "Int: " << literal << "; " << e.what() << std::endl;
+			return ;
 		}
 	}
 	else if (isFloat(literal))
@@ -198,11 +195,8 @@ void ScalarConverter::convert(const std::string& literal)
 		}
 		catch(const std::exception& e)
 		{
-			// std::cerr << "isFloat: " << e.what() << std::endl;
-			charImpossible = true;
-			intImpossible = true;
-			floatImpossible = true;
-			doubleImpossible = true;
+			std::cerr << "Float: " << literal << "; " << e.what() << std::endl;
+			return ;
 		}
 	}
 	else if (isDouble(literal))
@@ -230,12 +224,14 @@ void ScalarConverter::convert(const std::string& literal)
 		}
 		catch(const std::exception& e)
 		{
-			// std::cerr << "isDouble: " << e.what() << std::endl;
-			charImpossible = true;
-			intImpossible = true;
-			floatImpossible = true;
-			doubleImpossible = true;
+			std::cerr << "Double: " << literal << "; " << e.what() << std::endl;
+			return ;
 		}
+	}
+	else
+	{
+		std::cerr << "Invlid input: " << literal << std::endl;
+		return ;
 	}
 	if (literal == "-inf" || literal == "+inf" || literal == "nan" || literal == "-inff" || literal == "+inff" || literal == "nanf" || charImpossible)
 		std::cout << "char: impossible" << std::endl;
