@@ -1,4 +1,5 @@
 #include "ScalarConverter.hpp"
+#include <iomanip>
 
 bool ScalarConverter::isChar(const std::string& literal)
 {
@@ -191,6 +192,9 @@ void ScalarConverter::convert(const std::string& literal)
 	else
 		std::cout << "char: Non displayable" << std::endl;
 	std::cout << "int: " << _int << std::endl;
-	std::cout << "float: " << _float << "f" << std::endl;
+	if (_float == std::floor(_float))
+		std::cout << std::fixed << std::setprecision(1) << "float: " << _float << "f" << std::endl;
+	else
+		std::cout << "float: " << _float << "f" << std::endl;
 	std::cout << "double: " << _double << std::endl;
 }
