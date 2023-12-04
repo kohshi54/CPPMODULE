@@ -24,6 +24,9 @@ Base* generate(void)
 
 void identify(Base* p)
 {
+#ifdef DEBUG
+	std::cout << "Base pointer passed" << std::endl;
+#endif
 	if (dynamic_cast<A*>(p))
 		std::cout << "A" << std::endl;
 	else if (dynamic_cast<B*>(p))
@@ -34,6 +37,9 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
+#ifdef DEBUG
+	std::cout << "Base reference passed" << std::endl;
+#endif
 	try
 	{
 		Base &n = dynamic_cast<A&>(p);
