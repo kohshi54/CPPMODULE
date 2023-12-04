@@ -75,8 +75,6 @@ bool ScalarConverter::isDouble(const std::string& literal)
 	bool hasDecimalPoint = false;
 	bool hasExponent = false;
 
-	if (isInt(literal))
-		return false;
 	if (literal == "-inf" || literal == "+inf" || literal == "nan")
 		return true;
 	for (size_t i = 0; i < literal.length(); ++i)
@@ -106,7 +104,7 @@ bool ScalarConverter::isDouble(const std::string& literal)
 		}
 		return false;
 	}
-	return true;
+	return true && hasDecimalPoint;
 }
 
 void ScalarConverter::convert(const std::string& literal)
