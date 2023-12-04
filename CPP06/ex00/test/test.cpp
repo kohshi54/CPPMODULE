@@ -1,11 +1,7 @@
 #include <gtest/gtest.h>
 #include "ScalarConverter.hpp"
 
-class ConverterTest : public :: testing::Test {
-
-};
-
-TEST_F(ConverterTest, IsChar)
+TEST(ConverterTest, IsChar)
 {
 	EXPECT_TRUE(ScalarConverter::isChar("a"));
 	EXPECT_TRUE(ScalarConverter::isChar("b"));
