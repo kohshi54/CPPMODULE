@@ -5,6 +5,9 @@ TEST(ConverterTest, IsChar)
 {
 	EXPECT_TRUE(ScalarConverter::isChar("a"));
 	EXPECT_TRUE(ScalarConverter::isChar("b"));
+	EXPECT_TRUE(ScalarConverter::isChar("*"));
+	EXPECT_TRUE(ScalarConverter::isChar("+"));
+
 	EXPECT_FALSE(ScalarConverter::isChar("1"));
 }
 

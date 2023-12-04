@@ -2,7 +2,7 @@
 
 bool ScalarConverter::isChar(const std::string& literal)
 {
-	return literal.length() == 1 && std::isalpha(literal[0]);
+	return literal.length() == 1 && std::isprint(literal[0]) && !std::isdigit(literal[0]);
 }
 
 bool ScalarConverter::isInt(const std::string& literal)
