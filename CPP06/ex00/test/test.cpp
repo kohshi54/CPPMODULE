@@ -59,6 +59,22 @@ TEST(ConverterTest, IsFloat)
 	EXPECT_FALSE(ScalarConverter::isFloat("nan"));
 }
 
+TEST(ConverterTest, IsDouble)
+{
+	EXPECT_TRUE(ScalarConverter::isDouble("4.2"));
+	EXPECT_TRUE(ScalarConverter::isDouble(".0"));
+	EXPECT_TRUE(ScalarConverter::isDouble("0.0"));
+	EXPECT_TRUE(ScalarConverter::isDouble("-inf"));
+	EXPECT_TRUE(ScalarConverter::isDouble("+inf"));
+	EXPECT_TRUE(ScalarConverter::isDouble("nan"));
+
+	EXPECT_FALSE(ScalarConverter::isDouble("1"));
+	EXPECT_FALSE(ScalarConverter::isDouble("10"));
+	EXPECT_FALSE(ScalarConverter::isDouble("aa"));
+	EXPECT_FALSE(ScalarConverter::isDouble("AA"));
+	EXPECT_FALSE(ScalarConverter::isDouble("nanf"));
+}
+
 int main(int argc, char *argv[])
 {
 	::testing::InitGoogleTest(&argc, argv);
