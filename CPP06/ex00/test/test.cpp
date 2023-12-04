@@ -48,13 +48,15 @@ TEST(ConverterTest, IsFloat)
 	EXPECT_TRUE(ScalarConverter::isFloat("0f"));
 	EXPECT_TRUE(ScalarConverter::isFloat(".0f"));
 	EXPECT_TRUE(ScalarConverter::isFloat("0.0f"));
+	EXPECT_TRUE(ScalarConverter::isFloat("-inff"));
+	EXPECT_TRUE(ScalarConverter::isFloat("+inff"));
+	EXPECT_TRUE(ScalarConverter::isFloat("nanf"));
 
 	EXPECT_FALSE(ScalarConverter::isFloat("1"));
 	EXPECT_FALSE(ScalarConverter::isFloat("10"));
 	EXPECT_FALSE(ScalarConverter::isFloat("aa"));
 	EXPECT_FALSE(ScalarConverter::isFloat("AA"));
-
-	// EXPECT_TRUE(ScalarConverter::isChar("\t")); // If handle escape sequence, it can be handle correctly.
+	EXPECT_FALSE(ScalarConverter::isFloat("nan"));
 }
 
 int main(int argc, char *argv[])
