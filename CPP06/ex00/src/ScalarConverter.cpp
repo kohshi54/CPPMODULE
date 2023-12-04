@@ -190,7 +190,7 @@ void ScalarConverter::convert(const std::string& literal)
 	if (literal == "-inf" || literal == "+inf" || literal == "nan" || literal == "-inff" || literal == "+inff" || literal == "nanf")
 		std::cout << "char: impossible" << std::endl;
 	else if (std::isprint(static_cast<unsigned int>(_char)))
-		std::cout << "char: " << _char << std::endl;
+		std::cout << "char: '" << _char << "'" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
 	if (literal == "-inf" || literal == "+inf" || literal == "nan" || literal == "-inff" || literal == "+inff" || literal == "nanf")
