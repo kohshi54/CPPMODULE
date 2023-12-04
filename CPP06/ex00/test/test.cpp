@@ -62,6 +62,8 @@ TEST(ConverterTest, IsFloat)
 	EXPECT_FALSE(ScalarConverter::isFloat("nan"));
 	EXPECT_FALSE(ScalarConverter::isFloat("1.23ef"));
 	EXPECT_FALSE(ScalarConverter::isFloat("1.23+f"));
+	EXPECT_FALSE(ScalarConverter::isFloat("1.23+"));
+	EXPECT_FALSE(ScalarConverter::isFloat("1.23e"));
 }
 
 TEST(ConverterTest, IsDouble)
