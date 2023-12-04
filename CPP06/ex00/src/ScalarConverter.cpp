@@ -130,6 +130,10 @@ void ScalarConverter::convert(const std::string& literal)
 	int _int = 0;
 	float _float = 0.0f;
 	double _double = 0.0;
+	bool charImpossible = false;
+	bool intImpossible = false;
+	bool floatImpossible = false;
+	bool doubleImpossible = false;
 
 	if (isChar(literal))
 	{
@@ -156,7 +160,10 @@ void ScalarConverter::convert(const std::string& literal)
 		try
 		{
 			_int = std::stoi(literal);
-			_char = static_cast<char>(_int);
+			if (_int < std::numeric_limits<char>::min() || std::numeric_limits<char>::max() < _int)
+				charImpossible = true;
+			else
+				_char = static_cast<char>(_int);
 			_float = static_cast<float>(_int);
 			_double = static_cast<double>(_int);
 		}
@@ -178,8 +185,16 @@ void ScalarConverter::convert(const std::string& literal)
 		try
 		{
 			_float = std::stof(literal);
-			_char = static_cast<char>(_float);
-			_int = static_cast<int>(_float);
+			if (_float < std::numeric_limits<char>::min() || std::numeric_limits<char>::max() < _float)
+				charImpossible = true;
+			else
+				_char = static_cast<char>(_float);
+
+			if (_float < std::numeric_limits<int>::min() || std::numeric_limits<int>::max() < _float)
+				intImpossible = true;
+			else
+				_int = static_cast<int>(_float);
+
 			_double = static_cast<double>(_float);
 		}
 		catch(const std::exception& e)
@@ -200,9 +215,20 @@ void ScalarConverter::convert(const std::string& literal)
 		try
 		{
 			_double = std::stod(literal);
-			_char = static_cast<char>(_double);
-			_int = static_cast<int>(_double);
-			_float = static_cast<float>(_double);
+			if (_double < std::numeric_limits<char>::min() || std::numeric_limits<char>::max() < _double)
+				charImpossible = true;
+			else
+				_char = static_cast<char>(_double);
+
+			if (_double < std::numeric_limits<int>::min() || std::numeric_limits<int>::max() < _double)
+				intImpossible = true;
+			else
+				_int = static_cast<int>(_double);
+			
+			if (_double < std::numeric_limits<float>::min() || std::numeric_limits<float>::max() < _float)
+				floatImpossible = true;
+			else
+				_float = static_cast<float>(_double);
 		}
 		catch(const std::exception& e)
 		{
@@ -214,19 +240,24 @@ void ScalarConverter::convert(const std::string& literal)
 			return ;
 		}
 	}
-	if (literal == "-inf" || literal == "+inf" || literal == "nan" || literal == "-inff" || literal == "+inff" || literal == "nanf")
+	if (literal == "-inf" || literal == "+inf" || literal == "nan" || literal == "-inff" || literal == "+inff" || literal == "nanf" || charImpossible)
 		std::cout << "char: impossible" << std::endl;
 	else if (std::isprint(static_cast<unsigned int>(_char)))
 		std::cout << "char: '" << _char << "'" << std::endl;
 	else
 		std::cout << "char: Non displayable" << std::endl;
-	if (literal == "-inf" || literal == "+inf" || literal == "nan" || literal == "-inff" || literal == "+inff" || literal == "nanf")
+	if (literal == "-inf" || literal == "+inf" || literal == "nan" || literal == "-inff" || literal == "+inff" || literal == "nanf" || intImpossible)
 		std::cout << "int: impossible" << std::endl;
 	else
 		std::cout << "int: " << _int << std::endl;
-	if (_float == std::floor(_float))
+	if (floatImpossible)
+		std::cout << "float: impossible" << std::endl;
+	else if (_float == std::floor(_float))
 		std::cout << std::fixed << std::setprecision(1) << "float: " << _float << "f" << std::endl;
 	else
 		std::cout << "float: " << _float << "f" << std::endl;
-	std::cout << "double: " << _double << std::endl;
+	if (doubleImpossible)
+		std::cout << "double: impossible" << std::endl;
+	else
+		std::cout << "double: " << _double << std::endl;
 }
