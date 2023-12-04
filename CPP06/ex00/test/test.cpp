@@ -55,6 +55,7 @@ TEST(ConverterTest, IsFloat)
 	EXPECT_TRUE(ScalarConverter::isFloat("1.23e+4f"));
 	EXPECT_TRUE(ScalarConverter::isFloat("89.3e-5f"));
 	EXPECT_TRUE(ScalarConverter::isFloat("3.40282e+38f")); // FLT_MAX
+	EXPECT_TRUE(ScalarConverter::isFloat("1.17549e-38f")); // FLT_MIN
 
 	EXPECT_FALSE(ScalarConverter::isFloat("1"));
 	EXPECT_FALSE(ScalarConverter::isFloat("10"));
@@ -77,6 +78,8 @@ TEST(ConverterTest, IsDouble)
 	EXPECT_TRUE(ScalarConverter::isDouble("1.23e4"));
 	EXPECT_TRUE(ScalarConverter::isDouble("1.23e+4"));
 	EXPECT_TRUE(ScalarConverter::isDouble("1.23e-4"));
+	EXPECT_TRUE(ScalarConverter::isDouble("1.79769313486232e+308")); // DBL_MAX
+	EXPECT_TRUE(ScalarConverter::isDouble("2.2250738585072e-308")); // DBL_MIN
 
 	EXPECT_FALSE(ScalarConverter::isDouble("1"));
 	EXPECT_FALSE(ScalarConverter::isDouble("10"));
