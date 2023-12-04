@@ -16,7 +16,6 @@ class ScalarConverter
 
 	private:
 		ScalarConverter();
-		~ScalarConverter();
 };
 
 #endif
