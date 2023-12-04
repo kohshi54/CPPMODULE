@@ -43,11 +43,11 @@ re : fclean all
 debug : clean
 	@make DEBUG=1
 
-# test:
-# 	cmake -S . -B build
-# 	cmake --build build
-# 	./build/googletest
+test : 
+	cmake -S . -B build -Wno-dev
+	cmake --build build
+	./build/convert-googletest
 
 -include $(DEPS)
 
-.PHONY : clean fclean re all debug
+.PHONY : clean fclean re all debug test
