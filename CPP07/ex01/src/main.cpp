@@ -8,7 +8,7 @@ void print(int i)
 int main(void)
 {
 	int array[] = {1, 2, 3, 4};
-	iter(array, 4, &print);
+	iter(array, 4, print);
 	return 0;
 }
 

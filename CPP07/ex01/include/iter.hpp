@@ -4,11 +4,11 @@
 # include <iostream>
 
 template <typename T, typename N, typename F>
-void iter(T* a, N n, F* f)
+void iter(T* a, N n, F f)
 {
 	for (N i = 0; i < n; ++i)
 	{
-		(*f)(a[i]);
+		f(a[i]);
 	}
 }
 	
