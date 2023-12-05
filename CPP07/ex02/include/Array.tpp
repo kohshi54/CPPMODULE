@@ -87,13 +87,3 @@ const char *Array<T>::OutOfBoundsException::what() const throw()
 {
 	return "index out of bounds";
 }
-
-// template <typename T>
-// std::ostream& operator<<(std::ostream& os, const Array<T>& array)
-// {
-// 	// for (size_t i = 0; i < array.size(); ++i)
-// 	// {
-// 		os << array[0];
-// 	// }
-//     return (os);
-// }
