@@ -14,6 +14,10 @@ Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n)
 #ifdef DEBUG
 	std::cout << GREEN << "Array copy constructor called" << RESET << std::endl;
 #endif
+	for (unsigned int i = 0; i < this->_size; ++i)
+	{
+		this->_array[i] = T();
+	}
 }
 template <typename T>
 Array<T>::Array(const Array& other) : _array(new T[other._size]), _size(other._size)
@@ -83,3 +87,13 @@ const char *Array<T>::OutOfBoundsException::what() const throw()
 {
 	return "index out of bounds";
 }
+
+// template <typename T>
+// std::ostream& operator<<(std::ostream& os, const Array<T>& array)
+// {
+// 	// for (size_t i = 0; i < array.size(); ++i)
+// 	// {
+// 		os << array[0];
+// 	// }
+//     return (os);
+// }

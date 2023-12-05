@@ -4,7 +4,15 @@
 int main()
 {
 	{
+		int* a = new int(3);
+		a[0] = 10;
+		a[1] = 20;
+		std::cout << *a << std::endl;
+		std::cout << "--------------" << std::endl;
+	}
+	{
 		Array<int>a(4);
+		std::cout << *a << std::endl;
 		for (size_t i = 0; i < a.size(); ++i)
 		{
 			a[i] = i * 10;
