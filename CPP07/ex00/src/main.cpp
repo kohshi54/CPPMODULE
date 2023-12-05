@@ -45,6 +45,6 @@ int main(int argc, char *argv[])
 __attribute__((destructor))
 static void end()
 {
-	system("leaks -q convert");
+	system("leaks -q whatever");
 }
 #endif
