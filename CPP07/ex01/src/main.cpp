@@ -1,6 +1,6 @@
 #include "iter.hpp"
 
-void square(int i)
+void print(int i)
 {
 	std::cout << i << std::endl;
 }
@@ -8,7 +8,7 @@ void square(int i)
 int main(void)
 {
 	int array[] = {1, 2, 3, 4};
-	iter(array, 4, &square);
+	iter(array, 4, &print);
 	return 0;
 }
 
