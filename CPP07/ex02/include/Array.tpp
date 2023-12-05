@@ -1,7 +1,7 @@
 #include "Array.hpp"
 
 template <typename T>
-Array<T>::Array() : _array(NULL), _size(0)
+Array<T>::Array() : _array( new T[0] ), _size(0)
 {
 #ifdef DEBUG
 	std::cout << GREEN << "Array constructor called" << RESET << std::endl;
@@ -87,3 +87,21 @@ const char *Array<T>::OutOfBoundsException::what() const throw()
 {
 	return "index out of bounds";
 }
+
+/*
+template <typename T>
+T& Array<T>::operator*()
+{
+	return this->_array[0];
+}
+
+template <typename T>
+std::ostream& operator<<(std::ostream& os, const Array<T>& array)
+{
+	for (size_t i = 0; i < array.size(); ++i)
+	{
+		os << array[i];
+	}
+    return (os);
+}
+*/

@@ -3,16 +3,24 @@
 
 int main()
 {
+	/*
 	{
-		int* a = new int(3);
-		a[0] = 10;
-		a[1] = 20;
+		int* a = new int();
 		std::cout << *a << std::endl;
-		std::cout << "--------------" << std::endl;
+		std::string* str = new std::string();
+		std::cout << *str << std::endl;
 	}
+	std::cout << "==============" << std::endl;
+	{
+		Array<int> *a = new Array<int>;
+		std::cout << *a << std::endl;
+		Array<std::string> *str = new Array<std::string>;
+		std::cout << *str << std::endl;
+	}
+	*/
+	std::cout << "==============" << std::endl;
 	{
 		Array<int>a(4);
-		std::cout << *a << std::endl;
 		for (size_t i = 0; i < a.size(); ++i)
 		{
 			a[i] = i * 10;

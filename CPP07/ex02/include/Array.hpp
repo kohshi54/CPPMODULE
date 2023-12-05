@@ -14,6 +14,7 @@ class Array
 		Array& operator=(const Array& rhs);
 		const T& operator[](unsigned int index) const;
 		T& operator[](unsigned int index);
+		// T& operator*();
 		~Array();
 
 		unsigned int size() const;
@@ -29,6 +30,9 @@ class Array
 		unsigned int _size;
 
 };
+
+// template <typename T>
+// std::ostream& operator<<(std::ostream& os, const Array<T>& array);
 
 #include "Array.tpp"
 

@@ -1,8 +1,8 @@
 NAME = array
 CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -pedantic-errors
+# -g -fsanitize=address -g -Wshadow -Wno-shadow
 #  -Wconversion
-# -fsanitize=address -g -Wshadow -Wno-shadow
 DEPFLAGS = -MMD -MP -MF $(DEP_DIR)$*.d
 
 SRC_DIR		= src/
