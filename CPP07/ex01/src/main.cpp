@@ -37,6 +37,6 @@ int main(void)
 __attribute__((destructor))
 static void end()
 {
-	system("leaks -q convert");
+	system("leaks -q iter");
 }
 #endif
