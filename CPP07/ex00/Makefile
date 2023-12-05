@@ -1,4 +1,4 @@
-NAME = template
+NAME = whatever
 CC = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -pedantic -pedantic-errors
 #  -Wconversion
