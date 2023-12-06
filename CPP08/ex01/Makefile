@@ -8,7 +8,7 @@ DEPFLAGS = -MMD -MP -MF $(DEP_DIR)$*.d
 SRC_DIR		= src/
 OBJ_DIR		= obj/
 DEP_DIR		= dep/
-SRCS = main.cpp
+SRCS = main.cpp Span.cpp
 OBJS = $(addprefix $(OBJ_DIR), $(SRCS:%.cpp=%.o))
 DEPS = $(addprefix $(DEP_DIR), $(SRCS:%.cpp=%.d))
 
