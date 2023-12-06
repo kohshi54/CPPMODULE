@@ -7,6 +7,7 @@
 #include <exception>
 #include <limits>
 #include <cstdlib>
+#include <iostream>
 
 class Span
 {

@@ -2,23 +2,32 @@
 
 Span::Span() : max_size(0)
 {
-
+#ifdef DEBUG
+	std::cout << "Span default constructor called" << std::endl;
+#endif
 }
 
 Span::Span(unsigned int N) : max_size(N)
 {
-
+#ifdef DEBUG
+	std::cout << "Span parameterized constructor called" << std::endl;
+#endif
 }
 
 Span::Span(const Span& other) : numbers(other.numbers), max_size(other.max_size)
 {
-
+#ifdef DEBUG
+	std::cout << "Span copy constructor called" << std::endl;
+#endif
 }
 
 Span& Span::operator=(const Span& rhs)
 {
 	if (this != &rhs)
 	{
+#ifdef DEBUG
+	std::cout << "Span copy assignment operator called" << std::endl;
+#endif
 		this->numbers = rhs.numbers;
 		this->max_size = rhs.max_size;
 	}
@@ -27,7 +36,9 @@ Span& Span::operator=(const Span& rhs)
 
 Span::~Span()
 {
-
+#ifdef DEBUG
+	std::cout << "Span destructor called" << std::endl;
+#endif
 }
 
 void Span::addNumber(int number)
