@@ -51,7 +51,7 @@ unsigned int Span::shortestSpan()
 	unsigned int min_span = std::numeric_limits<unsigned int>::max();
 	for (size_t i = 0; i < numbers.size() - 1; ++i)
 	{
-		unsigned int span = std::abs(numbers[i + 1] - numbers[i]);
+		unsigned int span = std::abs(static_cast<long>(numbers[i + 1]) - static_cast<long>(numbers[i]));
 		if (span < min_span)
 		{
 			min_span = span;
