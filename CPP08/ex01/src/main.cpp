@@ -40,3 +40,11 @@ int main()
 	}
 	return 0;
 }
+
+#ifdef DEBUG
+	__attribute__((destructor))
+	static void end()
+	{
+		system("leaks -q span");
+	}
+#endif

@@ -36,3 +36,11 @@ int main()
 		std::cerr << e.what() << std::endl;
 	}
 }
+
+#ifdef DEBUG
+	__attribute__((destructor))
+	static void end()
+	{
+		system("leaks -q easyfind");
+	}
+#endif
