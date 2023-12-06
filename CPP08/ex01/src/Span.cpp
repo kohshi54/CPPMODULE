@@ -39,7 +39,7 @@ void Span::addNumber(int number)
 	numbers.push_back(number);
 }
 
-int Span::shortestSpan()
+unsigned int Span::shortestSpan()
 {
 	if (numbers.size() < 2)
 	{
@@ -48,10 +48,10 @@ int Span::shortestSpan()
 
 	std::sort(numbers.begin(), numbers.end());
 
-	int min_span = std::numeric_limits<int>::max();
+	unsigned int min_span = std::numeric_limits<unsigned int>::max();
 	for (size_t i = 0; i < numbers.size() - 1; ++i)
 	{
-		int span = numbers[i + 1] - numbers[i];
+		unsigned int span = std::abs(numbers[i + 1] - numbers[i]);
 		if (span < min_span)
 		{
 			min_span = span;
@@ -61,7 +61,7 @@ int Span::shortestSpan()
 	return min_span;
 }
 
-int Span::longestSpan()
+unsigned int Span::longestSpan()
 {
 	if (numbers.size() < 2)
 	{

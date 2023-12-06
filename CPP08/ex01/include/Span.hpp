@@ -6,6 +6,7 @@
 #include <limits>
 #include <exception>
 #include <limits>
+#include <cstdlib>
 
 class Span
 {
@@ -24,8 +25,8 @@ class Span
 		
 		template <typename Iterator>
 		void addNumbers(Iterator begin, Iterator end);
-		int shortestSpan();
-		int longestSpan();
+		unsigned int shortestSpan();
+		unsigned int longestSpan();
 
 		class SpanException : public std::exception
 		{
